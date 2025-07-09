@@ -1,0 +1,104 @@
+/* Estilos generales */
+body {
+    background-color: #1c1b1b;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Encabezado */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    text-shadow:
+        0 0 5px #0cc0df,
+        0 0 10px #0cc0df,
+        0 0 20px #0cc0df;
+}
+
+/* Botones en header */
+header button {
+    background-color: #0cc0df;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(12, 192, 223, 0.6);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+header button:hover {
+    background-color: #09a8c0;
+    transform: translateY(-3px);
+}
+
+/* Main sections */
+main section {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    background-color: #222121;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(12, 192, 223, 0.4);
+}
+
+/* Títulos de sección */
+main section h2 {
+    color: #0cc0df;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #0cc0df;
+    padding-bottom: 8px;
+}
+
+/* Listas */
+main section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #ccc;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Párrafos */
+main section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* Precio */
+main section p strong {
+    font-size: 1.4em;
+    color: #0cc0df;
+}
+
+/* Botón comprar */
+main section button {
+    background-color: #0cc0df;
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(12, 192, 223, 0.8);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+main section button:hover {
+    background-color: #09a8c0;
+    transform: translateY(-4px);
+}
