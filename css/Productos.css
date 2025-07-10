@@ -52,18 +52,18 @@ button:hover {
     margin: 0 auto;
 }
 
-/* Cada producto: elimina el hover y estilos que antes aplicaban a .producto, ahora se aplican a .enlace-producto */
+/* Cada producto: sin padding, para que lo maneje el enlace */
 .producto {
     background-color: #222121;
     border-radius: 15px;
-    padding: 0; /* Quitamos padding aquí para que lo maneje el enlace */
+    padding: 0;
     box-shadow: 0 8px 20px rgba(12, 192, 223, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-    overflow: hidden; /* Para que bordes redondeados funcionen bien con el enlace */
+    overflow: hidden;
 }
 
-/* Ahora el enlace ocupa todo el producto y recibe el padding y efectos */
+/* Enlace que envuelve todo el producto */
 .enlace-producto {
     display: block;
     color: inherit;
@@ -80,17 +80,20 @@ button:hover {
 .enlace-producto:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 30px rgba(12, 192, 223, 0.8);
-    background-color: #2a2929; /* Ligero cambio para destacar */
+    background-color: #2a2929;
     cursor: pointer;
 }
 
-/* Imagen producto */
+/* Imagen producto centrada horizontalmente */
 .enlace-producto img {
+    display: block;          /* Para que margin auto funcione */
+    margin-left: auto;       /* Centrado horizontal */
+    margin-right: auto;      /* Centrado horizontal */
     max-width: 100%;
+    height: auto;
     border-radius: 10px;
     margin-bottom: 15px;
     box-shadow: 0 4px 10px rgba(12, 192, 223, 0.6);
-    display: block;
 }
 
 /* Título producto */
@@ -100,8 +103,7 @@ button:hover {
     font-size: 1.5em;
 }
 
-/* Quitamos el enlace dentro del h2 porque ahora el h2 está dentro del enlace completo */
-/* Si quieres que el color cambie al pasar el mouse, lo hacemos en el hover del enlace */
+/* Cambia color del título al pasar el mouse */
 .enlace-producto:hover h2 {
     color: #09a8c0;
 }
