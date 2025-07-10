@@ -25,8 +25,8 @@
                     <h3>Kit Básico Minisumo</h3>
                     <p>Incluye Arduino UNO, motores N20, driver L298N y accesorios esenciales.</p>
                     <p class="precio">Precio especial: Q385 GTQ</p>
-                    <button type="button" onclick="location.href='KitBasico.html'">Comprar Kit</button>
                 </a>
+                <button type="button" onclick="miFuncionKitBasico()">Comprar Kit</button>
             </article>
 
             <article class="promocion">
@@ -34,8 +34,8 @@
                     <h3>Kit Avanzado Minisumo</h3>
                     <p>Todo el Kit Básico más sensor ultrasónico y llantas de carrito de juguete.</p>
                     <p class="precio">Precio especial: Q800 GTQ</p>
-                    <button type="button" onclick="location.href='KitAvanzado.html'">Comprar Kit</button>
                 </a>
+                <button type="button" onclick="miFuncionKitAvanzado()">Comprar Kit</button>
             </article>
 
             <article class="promocion">
@@ -43,10 +43,23 @@
                     <h3>Kit Profesional Minisumo</h3>
                     <p>Incluye Kit Avanzado, motorreductores amarillos y sensores adicionales.</p>
                     <p class="precio">Precio especial: Q1,200 GTQ</p>
-                    <button type="button" onclick="location.href='KitProfesional.html'">Comprar Kit</button>
                 </a>
+                <button type="button" onclick="miFuncionKitProfesional()">Comprar Kit</button>
             </article>
         </div>
     </main>
+
+    <script>
+        function miFuncionKitBasico() {
+            alert('Función personalizada para Comprar Kit Básico');
+            // Aquí pones la función real que quieras ejecutar
+        }
+        function miFuncionKitAvanzado() {
+            alert('Función personalizada para Comprar Kit Avanzado');
+        }
+        function miFuncionKitProfesional() {
+            alert('Función personalizada para Comprar Kit Profesional');
+        }
+    </script>
 </body>
 </html>
