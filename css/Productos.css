@@ -111,3 +111,22 @@ button:hover {
     font-size: 1.1em;
 }
 
+#icono-carrito {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #0cc0df;
+  color: white;
+  font-size: 24px;
+  padding: 14px 16px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(12, 192, 223, 0.9);
+  cursor: pointer;
+  z-index: 1200;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#icono-carrito:hover {
+  background-color: #09a8c0;
+  transform: scale(1.1);
+}
