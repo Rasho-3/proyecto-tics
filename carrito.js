@@ -31,11 +31,11 @@ function crearCarritoFlotante() {
 
   document.body.appendChild(carritoDiv);
 
+  // Evento para botón vaciar carrito
   carritoDiv.querySelector('.vaciar-carrito').addEventListener('click', () => {
     carrito = [];
     total = 0;
     actualizarCarrito();
-    actualizarContadorCarrito();
     guardarCarrito();
   });
 }
@@ -78,14 +78,8 @@ function actualizarCarrito() {
   });
 
   totalSpan.textContent = total;
-}
 
-function actualizarContadorCarrito() {
-  const contador = document.getElementById('contador-carrito');
-  let totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
-  if (contador) {
-    contador.textContent = totalItems;
-  }
+  // No ocultamos el carrito automáticamente, así que no llamamos a mostrarOcultarCarrito()
 }
 
 function agregarAlCarrito(nombre, valor) {
@@ -97,7 +91,6 @@ function agregarAlCarrito(nombre, valor) {
   }
   total += valor;
   actualizarCarrito();
-  actualizarContadorCarrito();
   guardarCarrito();
 }
 
@@ -110,7 +103,6 @@ function eliminarProducto(indice) {
   carrito.splice(indice, 1);
 
   actualizarCarrito();
-  actualizarContadorCarrito();
   guardarCarrito();
 }
 
@@ -129,7 +121,6 @@ function cargarCarrito() {
   if (totalGuardado) {
     total = parseInt(totalGuardado, 10);
   }
-  actualizarContadorCarrito();
 }
 
 function asignarEventosComprar() {
@@ -140,7 +131,7 @@ function asignarEventosComprar() {
   botones.forEach(btn => {
     btn.addEventListener('click', () => {
       const texto = btn.textContent.trim();
-      const nombreProducto = texto.replace(/^comprar\\s+/i, '').trim();
+      const nombreProducto = texto.replace(/^comprar\s+/i, '').trim();
 
       const producto = productos.find(p => p.nombre.toLowerCase() === nombreProducto.toLowerCase());
       if (!producto) {
@@ -159,13 +150,14 @@ document.addEventListener('DOMContentLoaded', () => {
   actualizarCarrito();
   asignarEventosComprar();
 
+  // Mostrar u ocultar carrito al hacer clic en el icono
   const iconoCarrito = document.getElementById('icono-carrito');
-  if (iconoCarrito) {
-    iconoCarrito.addEventListener('click', () => {
-      const carritoDiv = document.getElementById('carrito-flotante');
-      if (carritoDiv) {
-        carritoDiv.style.display = carritoDiv.style.display === 'block' ? 'none' : 'block';
-      }
-    });
-  }
+  iconoCarrito.addEventListener('click', () => {
+    const carritoDiv = document.getElementById('carrito-flotante');
+    if (carritoDiv.style.display === 'block') {
+      carritoDiv.style.display = 'none';
+    } else {
+      carritoDiv.style.display = 'block';
+    }
+  });
 });
