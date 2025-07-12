@@ -1,17 +1,13 @@
 // carrito.js
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Carrito almacenado en localStorage bajo esta clave
   const STORAGE_KEY = 'stensaCarrito';
 
-  // Obtener referencias a elementos importantes
   const botonCarrito = document.getElementById('boton-carrito');
   const carritoFlotante = document.getElementById('carrito-flotante');
 
-  // Estado del carrito: array de objetos { nombre, precio, cantidad }
   let carrito = [];
 
-  // Cargar carrito desde localStorage
   function cargarCarrito() {
     const carritoGuardado = localStorage.getItem(STORAGE_KEY);
     if (carritoGuardado) {
@@ -23,12 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Guardar carrito en localStorage
   function guardarCarrito() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(carrito));
   }
 
-  // Actualizar la visualización del carrito flotante
   function actualizarCarritoUI() {
     if (!carritoFlotante) return;
 
@@ -37,15 +31,24 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    let html = '<h3>Carrito de Compras</h3><ul style="list-style:none; padding:0;">';
+    let html = '<h3>Carrito de Compras</h3><ul style="list-style:none; padding:0; margin:0;">';
 
     carrito.forEach((item, index) => {
       html += `
-        <li style="margin-bottom:10px; border-bottom:1px solid #ccc; padding-bottom:5px;">
+        <li style="margin-bottom:12px; border-bottom:1px solid #ddd; padding-bottom:8px;">
           <strong>${item.nombre}</strong><br />
           Precio: Q${item.precio.toFixed(2)} GTQ<br />
           Cantidad: ${item.cantidad}
-          <button data-index="${index}" class="btn-eliminar" style="margin-left:10px; cursor:pointer;">Eliminar</button>
+          <button data-index="${index}" class="btn-eliminar" style="
+            margin-left:10px;
+            cursor:pointer;
+            background:#dc3545;
+            border:none;
+            color:#fff;
+            border-radius:4px;
+            padding:2px 6px;
+            font-size:12px;
+          ">Eliminar</button>
         </li>
       `;
     });
@@ -53,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     html += '</ul>';
 
     const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
-    html += `<p><strong>Total: Q${total.toFixed(2)} GTQ</strong></p>`;
+    html += `<p style="font-weight:bold; margin-top:10px;">Total: Q${total.toFixed(2)} GTQ</p>`;
 
     carritoFlotante.innerHTML = html;
 
@@ -71,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Mostrar u ocultar carrito flotante
   function toggleCarrito() {
     if (!carritoFlotante) return;
     if (carritoFlotante.style.display === 'block') {
@@ -81,10 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Función para agregar producto al carrito
-  // Recibe nombre y precio (número)
   function agregarAlCarrito(nombre, precio) {
-    // Buscar si ya existe el producto
     const productoExistente = carrito.find(item => item.nombre === nombre);
     if (productoExistente) {
       productoExistente.cantidad += 1;
@@ -93,43 +92,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     guardarCarrito();
     actualizarCarritoUI();
-    alert(`Se agregó "${nombre}" al carrito.`);
+    // Se elimina la alerta para no mostrar notificación emergente
   }
 
-  // Asignar evento al botón flotante del carrito
   if (botonCarrito) {
     botonCarrito.addEventListener('click', toggleCarrito);
   }
 
-  // Inicializar carrito
   cargarCarrito();
   actualizarCarritoUI();
 
-  // Detectar botones de compra en la página y asignar eventos
-  // Consideramos botones con texto que contenga "Comprar"
+  // Detectar botones de compra
   const botonesCompra = Array.from(document.querySelectorAll('button'))
     .filter(btn => btn.textContent.trim().toLowerCase().startsWith('comprar'));
 
   botonesCompra.forEach(boton => {
     boton.addEventListener('click', () => {
-      // Intentamos obtener el nombre y precio del producto relacionado
-
-      // Estrategia:
-      // - Buscar el texto del botón para extraer nombre (ej. "Comprar Arduino UNO" -> "Arduino UNO")
-      // - Buscar en el DOM cercano el precio (elemento con clase .precio o texto que contenga "Q")
-
       let nombreProducto = boton.textContent.trim().replace(/^comprar\s+/i, '');
       let precioProducto = null;
 
-      // Buscar precio en el DOM cercano (padre o hermanos)
       let precioElem = boton.closest('main')?.querySelector('.precio');
       if (!precioElem) {
-        // Buscar en secciones cercanas
         precioElem = boton.parentElement.querySelector('.precio') || boton.parentElement.parentElement.querySelector('.precio');
       }
 
       if (precioElem) {
-        // Extraer número del texto, por ejemplo "Precio: Q150 GTQ"
         const precioTexto = precioElem.textContent;
         const match = precioTexto.match(/Q\s*([\d.,]+)/);
         if (match) {
@@ -137,7 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // Si no se encontró precio, asignar 0 y avisar
       if (precioProducto === null || isNaN(precioProducto)) {
         precioProducto = 0;
         console.warn(`No se encontró precio para el producto "${nombreProducto}". Se asignó 0.`);
