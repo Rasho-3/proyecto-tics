@@ -26,17 +26,9 @@ function crearCarritoFlotante() {
     <h3>Carrito de Compras</h3>
     <ul id="lista-carrito"></ul>
     <div><strong>Total: Q<span id="total-carrito">0</span></strong></div>
-    <button id="vaciar-carrito">Vaciar Carrito</button>
   `;
 
   document.body.appendChild(carritoDiv);
-
-  document.getElementById('vaciar-carrito').addEventListener('click', () => {
-    carrito = [];
-    total = 0;
-    actualizarCarrito();
-    guardarCarrito();
-  });
 }
 
 function actualizarCarrito() {
@@ -58,6 +50,14 @@ function actualizarCarrito() {
     const btnEliminar = document.createElement('button');
     btnEliminar.textContent = 'Eliminar';
     btnEliminar.title = `Eliminar ${item.nombre} del carrito`;
+    btnEliminar.style.backgroundColor = '#e74c3c';
+    btnEliminar.style.color = 'white';
+    btnEliminar.style.border = 'none';
+    btnEliminar.style.borderRadius = '4px';
+    btnEliminar.style.padding = '2px 6px';
+    btnEliminar.style.cursor = 'pointer';
+    btnEliminar.style.fontWeight = 'bold';
+    btnEliminar.style.marginLeft = '10px';
 
     btnEliminar.addEventListener('click', () => {
       eliminarProducto(index);
