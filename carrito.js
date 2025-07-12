@@ -8,24 +8,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let carrito = [];
 
-  // Carga carrito desde localStorage
   function cargarCarrito() {
-    const carritoGuardado = localStorage.getItem(STORAGE_KEY);
-    if (carritoGuardado) {
+    const data = localStorage.getItem(STORAGE_KEY);
+    if (data) {
       try {
-        carrito = JSON.parse(carritoGuardado);
+        carrito = JSON.parse(data);
       } catch {
         carrito = [];
       }
     }
   }
 
-  // Guarda carrito en localStorage
   function guardarCarrito() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(carrito));
   }
 
-  // Actualiza la interfaz del carrito
   function actualizarCarritoUI() {
     if (!carritoFlotante) return;
 
@@ -34,40 +31,38 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    let html = '<h3>Carrito de Compras</h3><ul style="list-style:none; padding:0; margin:0;">';
+    let html = '<h3>Carrito de Compras</h3><ul style="list-style:none; padding:0;">';
 
-    carrito.forEach((item, index) => {
+    carrito.forEach((item, i) => {
       html += `
-        <li style="margin-bottom:12px; border-bottom:1px solid #ddd; padding-bottom:8px;">
-          <strong>${item.nombre}</strong><br />
-          Precio: Q${item.precio.toFixed(2)} GTQ<br />
+        <li style="margin-bottom:12px; border-bottom:1px solid #ccc; padding-bottom:8px;">
+          <strong>${item.nombre}</strong><br>
+          Precio: Q${item.precio.toFixed(2)} GTQ<br>
           Cantidad: ${item.cantidad}
-          <button data-index="${index}" class="btn-eliminar" style="
+          <button data-index="${i}" class="btn-eliminar" style="
             margin-left:10px;
-            cursor:pointer;
             background:#dc3545;
             border:none;
             color:#fff;
             border-radius:4px;
             padding:2px 6px;
+            cursor:pointer;
             font-size:12px;
           ">Eliminar</button>
-        </li>
-      `;
+        </li>`;
     });
 
     html += '</ul>';
 
-    const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+    const total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
     html += `<p style="font-weight:bold; margin-top:10px;">Total: Q${total.toFixed(2)} GTQ</p>`;
 
     carritoFlotante.innerHTML = html;
 
-    // Eventos para eliminar productos
-    const btnsEliminar = carritoFlotante.querySelectorAll('.btn-eliminar');
-    btnsEliminar.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const idx = parseInt(e.target.getAttribute('data-index'), 10);
+    // Añadir evento para eliminar productos
+    carritoFlotante.querySelectorAll('.btn-eliminar').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const idx = parseInt(e.target.dataset.index, 10);
         if (!isNaN(idx)) {
           carrito.splice(idx, 1);
           guardarCarrito();
@@ -77,17 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Mostrar u ocultar carrito
   function toggleCarrito() {
     if (!carritoFlotante) return;
     carritoFlotante.style.display = carritoFlotante.style.display === 'block' ? 'none' : 'block';
   }
 
-  // Agregar producto al carrito (sin alert)
   function agregarAlCarrito(nombre, precio) {
-    const productoExistente = carrito.find(item => item.nombre === nombre);
-    if (productoExistente) {
-      productoExistente.cantidad += 1;
+    const producto = carrito.find(p => p.nombre === nombre);
+    if (producto) {
+      producto.cantidad++;
     } else {
       carrito.push({ nombre, precio, cantidad: 1 });
     }
@@ -95,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
     actualizarCarritoUI();
   }
 
-  // Evento para botón flotante del carrito
   if (botonCarrito) {
     botonCarrito.addEventListener('click', toggleCarrito);
   }
@@ -103,35 +95,27 @@ document.addEventListener('DOMContentLoaded', () => {
   cargarCarrito();
   actualizarCarritoUI();
 
-  // Detectar botones "Comprar" y asignar evento para agregar al carrito
-  const botonesCompra = Array.from(document.querySelectorAll('button'))
-    .filter(btn => btn.textContent.trim().toLowerCase().startsWith('comprar'));
+  // Detectar botones "Comprar" y asignar evento
+  document.querySelectorAll('button').forEach(btn => {
+    if (btn.textContent.trim().toLowerCase().startsWith('comprar')) {
+      btn.addEventListener('click', () => {
+        let nombre = btn.textContent.trim().replace(/^comprar\s+/i, '');
+        let precio = 0;
 
-  botonesCompra.forEach(boton => {
-    boton.addEventListener('click', () => {
-      let nombreProducto = boton.textContent.trim().replace(/^comprar\s+/i, '');
-      let precioProducto = null;
+        // Buscar precio en elementos cercanos con clase .precio
+        let precioElem = btn.closest('main')?.querySelector('.precio') ||
+                         btn.parentElement.querySelector('.precio') ||
+                         btn.parentElement.parentElement.querySelector('.precio');
 
-      // Buscar precio en el DOM cercano
-      let precioElem = boton.closest('main')?.querySelector('.precio');
-      if (!precioElem) {
-        precioElem = boton.parentElement.querySelector('.precio') || boton.parentElement.parentElement.querySelector('.precio');
-      }
-
-      if (precioElem) {
-        const precioTexto = precioElem.textContent;
-        const match = precioTexto.match(/Q\s*([\d.,]+)/);
-        if (match) {
-          precioProducto = parseFloat(match[1].replace(',', '.'));
+        if (precioElem) {
+          const match = precioElem.textContent.match(/Q\s*([\d.,]+)/);
+          if (match) {
+            precio = parseFloat(match[1].replace(',', '.'));
+          }
         }
-      }
 
-      if (precioProducto === null || isNaN(precioProducto)) {
-        precioProducto = 0;
-        console.warn(`No se encontró precio para el producto "${nombreProducto}". Se asignó 0.`);
-      }
-
-      agregarAlCarrito(nombreProducto, precioProducto);
-    });
+        agregarAlCarrito(nombre, precio);
+      });
+    }
   });
 });
