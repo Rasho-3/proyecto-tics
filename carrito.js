@@ -1,5 +1,3 @@
-// js/carrito.js
-
 const productos = [
   { nombre: "L298N", valor: 60 },
   { nombre: "Arduino Uno", valor: 150 },
@@ -46,6 +44,17 @@ function crearCarritoFlotante() {
   document.body.appendChild(carritoDiv);
 }
 
+function actualizarPosicionImagenInferior() {
+  const imagenInferior = document.querySelector('.imagen-inferior');
+  if (!imagenInferior) return;
+
+  if (carrito.length > 0) {
+    imagenInferior.classList.add('movida-arriba');
+  } else {
+    imagenInferior.classList.remove('movida-arriba');
+  }
+}
+
 function actualizarCarrito() {
   const lista = document.getElementById('lista-carrito');
   const totalSpan = document.getElementById('total-carrito');
@@ -83,6 +92,9 @@ function actualizarCarrito() {
   });
 
   totalSpan.textContent = total;
+
+  // Actualiza posición de la imagen inferior según el carrito
+  actualizarPosicionImagenInferior();
 }
 
 function agregarAlCarrito(nombre, valor) {
@@ -100,11 +112,9 @@ function agregarAlCarrito(nombre, valor) {
 function eliminarProducto(indice) {
   if (indice < 0 || indice >= carrito.length) return;
 
-  // Reducir el total según la cantidad y valor del producto a eliminar
   const producto = carrito[indice];
   total -= producto.valor * producto.cantidad;
 
-  // Eliminar producto del carrito
   carrito.splice(indice, 1);
 
   actualizarCarrito();
@@ -126,6 +136,8 @@ function cargarCarrito() {
   if (totalGuardado) {
     total = parseInt(totalGuardado, 10);
   }
+
+  actualizarPosicionImagenInferior(); // Actualiza posición al cargar
 }
 
 function asignarEventosComprar() {
@@ -145,7 +157,6 @@ function asignarEventosComprar() {
       }
 
       agregarAlCarrito(producto.nombre, producto.valor);
-      // alert(`Producto "${producto.nombre}" agregado al carrito.`); // Mensaje deshabilitado
     });
   });
 }
