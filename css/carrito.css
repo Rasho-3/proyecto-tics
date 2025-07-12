@@ -56,3 +56,24 @@
   display: block;
   margin-top: 10px;
 }
+
+/* Estilo para botón Vaciar Carrito */
+#carrito-flotante button.vaciar-carrito {
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(255, 152, 0, 0.7);
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+#carrito-flotante button.vaciar-carrito:hover {
+  background-color: #e68900;
+}
