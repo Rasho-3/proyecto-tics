@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <title>Inicio</title>
-    <!-- Enlace correcto al CSS externo -->
-    <link rel="stylesheet" href="css/inicio.css" />
+  <meta charset="UTF-8" />
+  <title>Inicio - STENSA</title>
+  <link rel="stylesheet" href="css/inicio.css" />
 </head>
 <body>
-    <!-- Menú de navegación -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="ProductosStensa.html">Productos</a></li>
-        </ul>
-    </nav>
+  <!-- Menú de navegación -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="ProductosStensa.html">Productos</a></li>
+    </ul>
+  </nav>
 
-    <main>
-        <h1>Bienvenido a STENSA</h1>
+  <main>
+    <h1>Bienvenido a STENSA</h1>
 
-        <div class="imagen-principal">
-            <img src="proyecto.Tics/minisumo_robot.png" alt="Minisumo Robot" />
-        </div>
+    <div class="imagen-principal">
+      <img src="proyecto.Tics/minisumo_robot.png" alt="Minisumo Robot" />
+    </div>
 
-        <section class="descripcion-principal">
-            <p>
-                El Minisumo es un pequeño robot de competición diseñado para participar en torneos de sumo robótico, donde el objetivo es sacar al oponente del ring usando estrategias y sensores.
-            </p>
-        </section>
+    <section class="descripcion-principal">
+      <p>
+        El Minisumo es un pequeño robot de competición diseñado para participar en torneos de sumo robótico, donde el objetivo es sacar al oponente del ring usando estrategias y sensores.
+      </p>
+    </section>
 
-        <div class="botones-navegacion">
-            <a href="ProductosStensa.html" class="boton">Ver Productos</a>
-            <a href="PromocionesStensa.html" class="boton">Ver Promociones</a>
-        </div>
+    <div class="botones-navegacion">
+      <a href="ProductosStensa.html" class="boton">Ver Productos</a>
+      <a href="PromocionesStensa.html" class="boton">Ver Promociones</a>
+    </div>
+  </main>
 
-        <img src="proyecto.Tics/partedeabajo.png" alt="Parte de abajo" class="imagen-inferior" />
-    </main>
+  <!-- Botón carrito flotante -->
+  <button id="boton-carrito" aria-label="Mostrar carrito" title="Mostrar carrito">🛒</button>
 
-    <!-- Enlace correcto a tu JS -->
-    <script src="js/carrito.js"></script>
+  <!-- Carrito flotante oculto inicialmente -->
+  <div id="carrito-flotante" aria-live="polite" aria-atomic="true" role="region"></div>
+
+  <!-- Imagen inferior fija y a lo ancho -->
+  <div class="imagen-inferior-fondo"></div>
+
+  <script src="js/carrito.js"></script>
 </body>
 </html>
