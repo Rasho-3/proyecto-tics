@@ -80,8 +80,8 @@
 
 #icono-carrito {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  top: 30px;     /* antes era bottom: 30px; ahora arriba */
+  right: 30px;   /* sigue a la derecha */
   background-color: #0cc0df;
   color: white;
   font-size: 24px;
@@ -97,3 +97,4 @@
   background-color: #09a8c0;
   transform: scale(1.1);
 }
+
