@@ -52,26 +52,30 @@ button:hover {
     margin: 0 auto;
 }
 
-/* Cada producto: sin padding, para que lo maneje el enlace */
+/* Cada producto */
 .producto {
     background-color: #222121;
     border-radius: 15px;
-    padding: 20px;
+    padding: 0;
     box-shadow: 0 8px 20px rgba(12, 192, 223, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     overflow: hidden;
-    cursor: pointer;
 }
 
-.producto:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(12, 192, 223, 0.8);
-    background-color: #2a2929;
+/* Enlace alrededor del título */
+.producto h2 a {
+    color: #0cc0df;
+    text-decoration: none;
+    pointer-events: none;   /* desactiva clic en el título */
+    cursor: default;        /* cursor normal */
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    display: inline-block;
 }
 
-/* Imagen producto centrada horizontalmente */
-.producto img {
+/* Enlace en la imagen - activa clic y cursor */
+.producto a img {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -80,23 +84,15 @@ button:hover {
     border-radius: 10px;
     margin-bottom: 15px;
     box-shadow: 0 4px 10px rgba(12, 192, 223, 0.6);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    pointer-events: auto; /* permite clic en la imagen */
 }
 
-.producto img:hover {
+/* Efecto hover solo en la imagen */
+.producto a:hover img {
     transform: scale(1.05);
-}
-
-/* Título producto (link solo en el texto) */
-.producto h2 a {
-    color: #0cc0df;
-    font-size: 1.5em;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.producto h2 a:hover {
-    color: #09a8c0;
+    box-shadow: 0 8px 20px rgba(12, 192, 223, 0.9);
 }
 
 /* Descripción */
@@ -111,47 +107,4 @@ button:hover {
     font-weight: bold;
     color: #0cc0df;
     font-size: 1.1em;
-}
-
-/* Estilos para el botón flotante del carrito */
-#boton-carrito {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #0cc0df;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    font-size: 2rem;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(12,192,223,0.7);
-    transition: background-color 0.3s ease;
-    z-index: 1100;
-}
-
-#boton-carrito:hover,
-#boton-carrito:focus {
-    background-color: #09a8c0;
-    outline: none;
-}
-
-/* Contenedor flotante del carrito */
-#carrito-flotante {
-    position: fixed;
-    bottom: 100px;
-    right: 30px;
-    background-color: #222121;
-    color: white;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(12,192,223,0.7);
-    max-width: 350px;
-    max-height: 300px;
-    overflow-y: auto;
-    font-family: Arial, sans-serif;
-    z-index: 1050;
-    display: none;
-    /* Puedes usar display:block en JS para mostrarlo */
 }
