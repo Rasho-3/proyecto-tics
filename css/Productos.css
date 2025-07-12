@@ -110,3 +110,39 @@ button:hover {
     color: #0cc0df;
     font-size: 1.1em;
 }
+
+/* Estilos para el carrito flotante */
+#carrito-flotante {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 350px;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0 4px 15px rgba(12, 192, 223, 0.9);
+  z-index: 1100;
+  font-family: Arial, sans-serif;
+  display: none; /* Oculto por defecto */
+}
+
+#carrito-flotante button.eliminar-item {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(231, 76, 60, 0.7);
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+#carrito-flotante button.eliminar-item:hover {
+  background-color: #c0392b;
+}
