@@ -78,55 +78,39 @@ main h1 {
     gap: 30px;
 }
 
-/* Cada promoción: el artículo solo contenedor sin fondo ni sombra */
+/* Cada promoción */
 .promocion {
-    background-color: transparent;
-    border-radius: 15px;
-    padding: 0;
-    box-shadow: none;
-    transition: none;
-}
-
-/* Enlace que envuelve toda la promoción */
-.enlace-promocion {
-    display: block;
-    padding: 25px 30px;
     background-color: #222121;
     border-radius: 15px;
+    padding: 25px 30px;
     box-shadow: 0 8px 20px rgba(12, 192, 223, 0.4);
-    color: inherit;
-    text-decoration: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efecto hover para toda la tarjeta enlazada */
-.enlace-promocion:hover {
-    background-color: #2a2929;
-    box-shadow: 0 12px 30px rgba(12, 192, 223, 0.8);
+/* Efecto hover en promoción */
+.promocion:hover {
     transform: translateY(-8px);
-    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(12, 192, 223, 0.8);
 }
 
-/* Título dentro del enlace */
-/* MODIFICACIÓN: mantener color fijo y cursor default */
-.enlace-promocion h3 {
+/* Título promoción con enlace */
+.promocion h3 {
     margin-bottom: 15px;
-    color: #0cc0df;
-    font-size: 1.6em;
-    cursor: default;
-    transition: none;
 }
 
-.enlace-promocion:hover h3 {
-    color: #0cc0df; /* color fijo sin cambio */
-    cursor: default;
+.promocion h3 a {
+    color: #0cc0df;
+    text-decoration: none;
+    font-size: 1.6em;
+    transition: color 0.3s ease;
+}
+
+.promocion h3 a:hover {
+    color: #09a8c0;
 }
 
 /* Texto descripción */
-.enlace-promocion p {
+.promocion p {
     color: #ccc;
     font-size: 1.1em;
     margin-bottom: 20px;
@@ -140,8 +124,8 @@ main h1 {
     margin-bottom: 25px;
 }
 
-/* Botón comprar dentro del enlace */
-.enlace-promocion button {
+/* Botón comprar */
+.promocion button {
     background-color: #0cc0df;
     color: white;
     border: none;
@@ -151,24 +135,10 @@ main h1 {
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(12, 192, 223, 0.6);
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    display: inline-block;
 }
 
-/* Hover del botón */
-.enlace-promocion button:hover {
+.promocion button:hover {
     background-color: #09a8c0;
     box-shadow: 0 6px 15px rgba(12, 192, 223, 0.9);
     transform: translateY(-3px);
-}
-
-/* Centrar imágenes dentro del enlace (si agregas alguna) */
-.enlace-promocion img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 10px rgba(12, 192, 223, 0.6);
 }
