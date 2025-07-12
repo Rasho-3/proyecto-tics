@@ -54,13 +54,19 @@ nav ul li a:focus {
   outline: none;
 }
 
+/* CUADRO PRINCIPAL AGRANDADO */
 main {
-  max-width: 900px;
+  max-width: 1100px;           /* Más ancho para el contenedor */
   background-color: #1e1e1e;
-  margin: 40px auto;
-  padding: 30px 40px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(12,192,223,0.4);
+  margin: 50px auto;           /* Más espacio arriba y abajo, centrado horizontal */
+  padding: 40px 60px;          /* Más espacio interno para que respire */
+  border-radius: 15px;         /* Bordes más redondeados */
+  box-shadow: 0 0 30px rgba(12,192,223,0.6); /* Sombra más visible */
+  transition: box-shadow 0.3s ease;
+}
+
+main:hover {
+  box-shadow: 0 0 45px rgba(12,192,223,0.9);
 }
 
 main h1 {
@@ -192,10 +198,12 @@ main h1 {
   display: none;
 }
 
+/* Responsive */
 @media (max-width: 600px) {
   main {
+    max-width: 95vw;
+    margin: 30px auto;
     padding: 20px 20px;
-    margin: 20px 10px;
   }
 
   main h1 {
