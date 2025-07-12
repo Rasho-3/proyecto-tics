@@ -52,50 +52,49 @@ button:hover {
     margin: 0 auto;
 }
 
-/* Cada producto: fondo y sombras */
+/* Cada producto */
 .producto {
     background-color: #222121;
     border-radius: 15px;
-    padding: 20px;
+    padding: 0;
     box-shadow: 0 8px 20px rgba(12, 192, 223, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     overflow: hidden;
 }
 
-/* Título del producto - bonito y no enlace */
-.producto h2 {
-    color: #0cc0df;
-    font-size: 1.5em;
-    margin-bottom: 15px;
-    text-shadow:
-        0 0 5px #0cc0df,
-        0 0 10px #0cc0df,
-        0 0 20px #0cc0df,
-        0 0 40px #0cc0df;
-    font-weight: 700;
-    cursor: default;
-}
-
-/* Imagen que es enlace */
+/* Enlace solo en la imagen */
 .link-producto {
-    display: inline-block; /* para que sólo la imagen sea clickeable */
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(12, 192, 223, 0.6);
-    transition: transform 0.3s ease;
-    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
 }
 
+/* Imagen producto centrada horizontalmente */
 .link-producto img {
-    display: block;
+    display: block;          /* Para que margin auto funcione */
+    margin-left: auto;       /* Centrado horizontal */
+    margin-right: auto;      /* Centrado horizontal */
     max-width: 100%;
     height: auto;
     border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(12, 192, 223, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
-.link-producto:hover {
+.link-producto img:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(12, 192, 223, 0.8);
+}
+
+/* Título producto: solo color azul, sin parecer enlace */
+.producto h2 {
+    color: #0cc0df;
+    cursor: default;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 1.5em;
 }
 
 /* Descripción */
