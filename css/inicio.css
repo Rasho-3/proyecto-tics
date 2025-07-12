@@ -1,212 +1,229 @@
 :root {
-  --color-primario: #0cc0df;
-  --color-primario-hover: #09a8c0;
-  --color-fondo: #121212;
-  --color-texto: #ffffff;
-  --color-nav-fondo: #222222;
-  --color-boton-texto: #ffffff;
+    --color-primario: #0cc0df;
+    --color-primario-hover: #09a8c0;
+    --color-fondo: #121212;
+    --color-texto: #ffffff;
+    --color-nav-fondo: #222222;
+    --color-boton-texto: #ffffff;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--color-fondo);
-  color: var(--color-texto);
-  line-height: 1.6;
-  padding-bottom: 220px; /* espacio para la imagen inferior fija */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
 }
 
 nav {
-  background-color: var(--color-nav-fondo);
-  padding: 15px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    background-color: var(--color-nav-fondo);
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
 nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: flex-start;
-  margin: 0;
-  padding: 0 30px;
-  gap: 25px;
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0 30px;
+    gap: 25px;
 }
 
 nav ul li a {
-  color: var(--color-boton-texto);
-  text-decoration: none;
-  font-weight: 600;
-  padding: 10px 20px;
-  border-radius: 50px;
-  background-color: var(--color-primario);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  display: inline-block;
+    color: var(--color-boton-texto);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background-color: var(--color-primario);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
 }
 
 nav ul li a:hover,
 nav ul li a:focus {
-  background-color: var(--color-primario-hover);
-  box-shadow: 0 0 12px var(--color-primario);
-  outline: none;
+    background-color: var(--color-primario-hover);
+    box-shadow: 0 0 12px var(--color-primario);
+    outline: none;
 }
 
 main {
-  max-width: 900px;
-  background-color: #1e1e1e;
-  margin: 40px auto;
-  padding: 30px 40px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(12,192,223,0.4);
+    max-width: 900px;
+    background-color: #1e1e1e;
+    margin: 40px auto;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(12,192,223,0.4);
 }
 
 main h1 {
-  text-align: center;
-  font-size: 3rem;
-  margin-bottom: 30px;
-  color: var(--color-texto);
-  text-shadow:
-    0 0 5px var(--color-primario),
-    0 0 10px var(--color-primario),
-    0 0 20px var(--color-primario),
-    0 0 40px var(--color-primario);
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: var(--color-texto);
+    text-shadow:
+        0 0 5px var(--color-primario),
+        0 0 10px var(--color-primario),
+        0 0 20px var(--color-primario),
+        0 0 40px var(--color-primario);
 }
 
 .imagen-principal img {
-  display: block;
-  max-width: 350px;
-  width: 100%;
-  margin: 0 auto 30px auto;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(12, 192, 223, 0.6);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: pointer;
+    display: block;
+    max-width: 350px;
+    width: 100%;
+    margin: 0 auto 30px auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(12, 192, 223, 0.6);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
 }
 
 .imagen-principal img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(12, 192, 223, 0.9);
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(12, 192, 223, 0.9);
 }
 
 .descripcion-principal {
-  max-width: 650px;
-  margin: 0 auto 40px auto;
-  text-align: center;
-  font-size: 1.25rem;
-  color: #ccc;
+    max-width: 650px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+    font-size: 1.25rem;
+    color: #ccc;
 }
 
 .botones-navegacion {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 40px;
 }
 
 .boton {
-  background-color: var(--color-primario);
-  color: var(--color-boton-texto);
-  padding: 14px 32px;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 1.1rem;
-  text-decoration: none;
-  box-shadow: 0 5px 15px rgba(12, 192, 223, 0.6);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-  cursor: pointer;
+    background-color: var(--color-primario);
+    color: var(--color-boton-texto);
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(12, 192, 223, 0.6);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
 }
 
 .boton:hover,
 .boton:focus {
-  background-color: var(--color-primario-hover);
-  box-shadow: 0 8px 25px rgba(12, 192, 223, 0.9);
-  transform: translateY(-3px);
-  outline: none;
+    background-color: var(--color-primario-hover);
+    box-shadow: 0 8px 25px rgba(12, 192, 223, 0.9);
+    transform: translateY(-3px);
+    outline: none;
 }
 
-/* Imagen inferior fija usando etiqueta img */
-.imagen-inferior {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: 220px; /* ajusta la altura que quieras */
-  object-fit: cover;
-  z-index: 500;
-  pointer-events: none; /* para que no interfiera con clicks */
+/* Imagen inferior con efecto hover y tamaño grande */
+.imagen-hover-container {
+    width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(12, 192, 223, 0.6);
+    margin: 20px 0;
+}
+
+.imagen-hover-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    cursor: pointer;
+}
+
+.imagen-hover-container img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
 }
 
 /* Botón carrito flotante */
 #boton-carrito {
-  position: fixed;
-  bottom: 250px; /* justo arriba de la imagen inferior */
-  right: 30px;
-  background-color: var(--color-primario);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  font-size: 2rem;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(12,192,223,0.7);
-  transition: background-color 0.3s ease;
-  z-index: 1100;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(12,192,223,0.7);
+    transition: background-color 0.3s ease;
+    z-index: 1100;
 }
 
 #boton-carrito:hover,
 #boton-carrito:focus {
-  background-color: var(--color-primario-hover);
-  outline: none;
+    background-color: var(--color-primario-hover);
+    outline: none;
 }
 
 /* Carrito flotante */
 #carrito-flotante {
-  position: fixed;
-  bottom: 320px; /* arriba del botón carrito */
-  right: 30px;
-  background-color: white;
-  color: black;
-  border-radius: 8px;
-  padding: 15px 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  max-width: 350px;
-  max-height: 300px;
-  overflow-y: auto;
-  font-family: Arial, sans-serif;
-  z-index: 1050;
-  display: none; /* oculto inicialmente */
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    max-width: 350px;
+    max-height: 300px;
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
+    z-index: 1050;
+    display: none;
 }
 
+/* Responsive */
 @media (max-width: 600px) {
-  main {
-    padding: 20px 20px;
-    margin: 20px 10px;
-  }
+    main {
+        padding: 20px 20px;
+        margin: 20px 10px;
+    }
 
-  main h1 {
-    font-size: 2rem;
-  }
+    main h1 {
+        font-size: 2rem;
+    }
 
-  .descripcion-principal {
-    font-size: 1.1rem;
-    padding: 0 10px;
-  }
+    .descripcion-principal {
+        font-size: 1.1rem;
+        padding: 0 10px;
+    }
 
-  .botones-navegacion {
-    flex-direction: column;
-    gap: 15px;
-  }
+    .botones-navegacion {
+        flex-direction: column;
+        gap: 15px;
+    }
 
-  .boton {
-    width: 100%;
-    text-align: center;
-    padding: 14px 0;
-  }
+    .boton {
+        width: 100%;
+        text-align: center;
+        padding: 14px 0;
+    }
 
-  .imagen-principal img {
-    max-width: 95vw;
-  }
+    .imagen-principal img {
+        max-width: 95vw;
+    }
+
+    .imagen-hover-container {
+        max-height: 300px;
+    }
 }
