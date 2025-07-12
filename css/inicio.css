@@ -7,7 +7,6 @@
   --color-boton-texto: #ffffff;
 }
 
-/* Reset y base */
 * {
   box-sizing: border-box;
 }
@@ -21,7 +20,6 @@ body {
   padding-bottom: 220px; /* espacio para la imagen inferior fija */
 }
 
-/* Navegación */
 nav {
   background-color: var(--color-nav-fondo);
   padding: 15px 0;
@@ -55,7 +53,6 @@ nav ul li a:focus {
   outline: none;
 }
 
-/* Contenedor principal */
 main {
   max-width: 900px;
   background-color: #1e1e1e;
@@ -65,7 +62,6 @@ main {
   box-shadow: 0 0 20px rgba(12,192,223,0.4);
 }
 
-/* Título principal */
 main h1 {
   text-align: center;
   font-size: 3rem;
@@ -78,7 +74,6 @@ main h1 {
     0 0 40px var(--color-primario);
 }
 
-/* Imagen principal */
 .imagen-principal img {
   display: block;
   max-width: 350px;
@@ -95,7 +90,6 @@ main h1 {
   box-shadow: 0 12px 30px rgba(12, 192, 223, 0.9);
 }
 
-/* Descripción */
 .descripcion-principal {
   max-width: 650px;
   margin: 0 auto 40px auto;
@@ -104,7 +98,6 @@ main h1 {
   color: #ccc;
 }
 
-/* Botones de navegación internos */
 .botones-navegacion {
   display: flex;
   justify-content: center;
@@ -133,25 +126,22 @@ main h1 {
   outline: none;
 }
 
-/* Imagen inferior fija y a lo ancho */
-.imagen-inferior-fondo {
+/* Imagen inferior fija usando etiqueta img */
+.imagen-inferior {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 200px; /* altura deseada */
-  background-image: url('proyecto.Tics/partedeabajo.png');
-  background-size: cover;
-  background-position: center bottom;
-  background-repeat: no-repeat;
+  height: 220px; /* ajusta la altura que quieras */
+  object-fit: cover;
   z-index: 500;
-  pointer-events: none;
+  pointer-events: none; /* para que no interfiera con clicks */
 }
 
 /* Botón carrito flotante */
 #boton-carrito {
   position: fixed;
-  bottom: 230px; /* justo arriba de la imagen inferior */
+  bottom: 250px; /* justo arriba de la imagen inferior */
   right: 30px;
   background-color: var(--color-primario);
   color: white;
@@ -175,7 +165,7 @@ main h1 {
 /* Carrito flotante */
 #carrito-flotante {
   position: fixed;
-  bottom: 300px; /* arriba del botón carrito */
+  bottom: 320px; /* arriba del botón carrito */
   right: 30px;
   background-color: white;
   color: black;
@@ -190,7 +180,6 @@ main h1 {
   display: none; /* oculto inicialmente */
 }
 
-/* Responsive */
 @media (max-width: 600px) {
   main {
     padding: 20px 20px;
