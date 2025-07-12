@@ -56,60 +56,51 @@ button:hover {
 .producto {
     background-color: #222121;
     border-radius: 15px;
-    padding: 0;
+    padding: 20px;
     box-shadow: 0 8px 20px rgba(12, 192, 223, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     overflow: hidden;
-}
-
-/* Enlace que envuelve todo el producto */
-.enlace-producto {
-    display: block;
-    color: inherit;
-    text-decoration: none;
-    padding: 20px;
-    border-radius: 15px;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-}
-
-/* Efecto hover para toda la sección enlazada */
-.enlace-producto:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(12, 192, 223, 0.8);
-    background-color: #2a2929;
     cursor: pointer;
 }
 
+.producto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(12, 192, 223, 0.8);
+    background-color: #2a2929;
+}
+
 /* Imagen producto centrada horizontalmente */
-.enlace-producto img {
-    display: block;          /* Para que margin auto funcione */
-    margin-left: auto;       /* Centrado horizontal */
-    margin-right: auto;      /* Centrado horizontal */
+.producto img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 100%;
     height: auto;
     border-radius: 10px;
     margin-bottom: 15px;
     box-shadow: 0 4px 10px rgba(12, 192, 223, 0.6);
+    transition: transform 0.3s ease;
 }
 
-/* Título producto */
-.enlace-producto h2 {
-    margin-bottom: 10px;
+.producto img:hover {
+    transform: scale(1.05);
+}
+
+/* Título producto (link solo en el texto) */
+.producto h2 a {
     color: #0cc0df;
     font-size: 1.5em;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-/* Cambia color del título al pasar el mouse */
-.enlace-producto:hover h2 {
+.producto h2 a:hover {
     color: #09a8c0;
 }
 
 /* Descripción */
-.enlace-producto p {
+.producto p {
     color: #ccc;
     font-size: 1em;
     margin-bottom: 10px;
@@ -122,9 +113,7 @@ button:hover {
     font-size: 1.1em;
 }
 
-/* Estilos para el carrito de compras */
-
-/* Botón flotante del carrito */
+/* Estilos para el botón flotante del carrito */
 #boton-carrito {
     position: fixed;
     bottom: 30px;
@@ -135,14 +124,11 @@ button:hover {
     border-radius: 50%;
     width: 60px;
     height: 60px;
-    font-size: 2.2rem;
+    font-size: 2rem;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(12,192,223,0.7);
     transition: background-color 0.3s ease;
     z-index: 1100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 #boton-carrito:hover,
@@ -151,36 +137,21 @@ button:hover {
     outline: none;
 }
 
-/* Ventana flotante del carrito */
+/* Contenedor flotante del carrito */
 #carrito-flotante {
     position: fixed;
     bottom: 100px;
     right: 30px;
     background-color: #222121;
-    color: #ccc;
+    color: white;
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 8px 20px rgba(12, 192, 223, 0.8);
+    box-shadow: 0 4px 15px rgba(12,192,223,0.7);
     max-width: 350px;
-    max-height: 400px;
+    max-height: 300px;
     overflow-y: auto;
     font-family: Arial, sans-serif;
-    z-index: 1090;
-    display: none; /* Se muestra o oculta vía JS */
-}
-
-/* Scrollbar personalizado para carrito */
-#carrito-flotante::-webkit-scrollbar {
-    width: 8px;
-}
-
-#carrito-flotante::-webkit-scrollbar-track {
-    background: #333;
-    border-radius: 10px;
-}
-
-#carrito-flotante::-webkit-scrollbar-thumb {
-    background-color: #0cc0df;
-    border-radius: 10px;
-    border: 2px solid #222121;
+    z-index: 1050;
+    display: none;
+    /* Puedes usar display:block en JS para mostrarlo */
 }
