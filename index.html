@@ -1,83 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Inicio</title>
-    <link rel="stylesheet" href="css/inicio.css">
-    <style>
-        /* Estilos básicos para mejor visualización */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f4f4f4;
-        }
-        nav {
-            background: #222;
-            padding: 10px 0;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: flex-start;
-            margin: 0;
-            padding: 0 20px;
-        }
-        nav ul li {
-            margin-right: 20px;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        main {
-            max-width: 900px;
-            margin: 30px auto;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px #0001;
-            padding: 30px;
-        }
-        .imagen-principal img {
-            width: 100%;
-            max-width: 350px;
-            display: block;
-            margin: 0 auto 20px;
-        }
-        .descripcion-principal {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        .botones-navegacion {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        .boton {
-            background: #1976d2;
-            color: #fff;
-            padding: 12px 28px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 1.1em;
-            transition: background 0.2s;
-        }
-        .boton:hover {
-            background: #0d47a1;
-        }
-        .imagen-inferior {
-            width: 100%;
-            max-width: 400px;
-            display: block;
-            margin: 40px auto 0;
-        }
-        @media (max-width: 600px) {
-            main { padding: 10px; }
-            .imagen-principal img,
-            .imagen-inferior { max-width: 95vw; }
-        }
-    </style>
+    <!-- Enlace correcto al CSS externo -->
+    <link rel="stylesheet" href="css/inicio.css" />
 </head>
 <body>
     <!-- Menú de navegación -->
@@ -89,10 +16,10 @@
     </nav>
 
     <main>
-        <h1 style="text-align:center;">Bienvenido a STENSA</h1>
+        <h1>Bienvenido a STENSA</h1>
 
         <div class="imagen-principal">
-            <img src="proyecto.Tics/minisumo_robot.png" alt="Minisumo Robot">
+            <img src="proyecto.Tics/minisumo_robot.png" alt="Minisumo Robot" />
         </div>
 
         <section class="descripcion-principal">
@@ -106,10 +33,10 @@
             <a href="PromocionesStensa.html" class="boton">Ver Promociones</a>
         </div>
 
-        <img src="proyecto.Tics/partedeabajo.png" alt="Parte de abajo" class="imagen-inferior">
+        <img src="proyecto.Tics/partedeabajo.png" alt="Parte de abajo" class="imagen-inferior" />
     </main>
 
-    <!-- Enlazamos el archivo JavaScript externo para el carrito flotante -->
-    <script src="carrito.js"></script>
+    <!-- Enlace correcto a tu JS -->
+    <script src="js/carrito.js"></script>
 </body>
 </html>
