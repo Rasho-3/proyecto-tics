@@ -79,13 +79,7 @@ function actualizarCarrito() {
 
   totalSpan.textContent = total;
 
-  mostrarOcultarCarrito();
-}
-
-function mostrarOcultarCarrito() {
-  const carritoDiv = document.getElementById('carrito-flotante');
-  if (!carritoDiv) return;
-  carritoDiv.style.display = carrito.length > 0 ? 'block' : 'none';
+  // No ocultamos el carrito automáticamente, así que no llamamos a mostrarOcultarCarrito()
 }
 
 function agregarAlCarrito(nombre, valor) {
@@ -162,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const carritoDiv = document.getElementById('carrito-flotante');
     if (carritoDiv.style.display === 'block') {
       carritoDiv.style.display = 'none';
-    } else if (carrito.length > 0) {
+    } else {
       carritoDiv.style.display = 'block';
     }
   });
