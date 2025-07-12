@@ -138,7 +138,10 @@ main h1 {
 }
 
 /* Botón comprar dentro del enlace */
-.enlace-promocion button {
+/* Ya no usamos boton aquí, es un enlace con clase boton-comprar */
+
+/* Nuevo estilo para el enlace con estilo de botón */
+.boton-comprar {
     background-color: #0cc0df;
     color: white;
     border: none;
@@ -149,10 +152,12 @@ main h1 {
     box-shadow: 0 4px 8px rgba(12, 192, 223, 0.6);
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
 }
 
-/* Hover del botón */
-.enlace-promocion button:hover {
+.boton-comprar:hover {
     background-color: #09a8c0;
     box-shadow: 0 6px 15px rgba(12, 192, 223, 0.9);
     transform: translateY(-3px);
