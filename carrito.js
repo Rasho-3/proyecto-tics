@@ -1,5 +1,3 @@
-// js/carrito.js
-
 const productos = [
   { nombre: "L298N", valor: 60 },
   { nombre: "Arduino Uno", valor: 150 },
@@ -23,27 +21,22 @@ let total = 0;
 function crearCarritoFlotante() {
   const carritoDiv = document.createElement('div');
   carritoDiv.id = 'carrito-flotante';
-  carritoDiv.style.position = 'fixed';
-  carritoDiv.style.bottom = '10px';
-  carritoDiv.style.left = '50%';
-  carritoDiv.style.transform = 'translateX(-50%)';
-  carritoDiv.style.backgroundColor = 'white';
-  carritoDiv.style.border = '1px solid #ccc';
-  carritoDiv.style.borderRadius = '8px';
-  carritoDiv.style.padding = '10px 20px';
-  carritoDiv.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-  carritoDiv.style.zIndex = '1000';
-  carritoDiv.style.maxWidth = '400px';
-  carritoDiv.style.width = '90%';
-  carritoDiv.style.fontFamily = 'Arial, sans-serif';
 
   carritoDiv.innerHTML = `
-    <h3 style="margin: 0 0 10px 0; font-size: 1.2em;">Carrito de Compras</h3>
-    <ul id="lista-carrito" style="list-style:none; padding-left:0; max-height:150px; overflow-y:auto; margin-bottom:10px;"></ul>
+    <h3>Carrito de Compras</h3>
+    <ul id="lista-carrito"></ul>
     <div><strong>Total: Q<span id="total-carrito">0</span></strong></div>
+    <button id="vaciar-carrito">Vaciar Carrito</button>
   `;
 
   document.body.appendChild(carritoDiv);
+
+  document.getElementById('vaciar-carrito').addEventListener('click', () => {
+    carrito = [];
+    total = 0;
+    actualizarCarrito();
+    guardarCarrito();
+  });
 }
 
 function actualizarCarrito() {
@@ -64,13 +57,6 @@ function actualizarCarrito() {
 
     const btnEliminar = document.createElement('button');
     btnEliminar.textContent = 'Eliminar';
-    btnEliminar.style.marginLeft = '10px';
-    btnEliminar.style.backgroundColor = '#e74c3c';
-    btnEliminar.style.color = 'white';
-    btnEliminar.style.border = 'none';
-    btnEliminar.style.borderRadius = '4px';
-    btnEliminar.style.padding = '2px 6px';
-    btnEliminar.style.cursor = 'pointer';
     btnEliminar.title = `Eliminar ${item.nombre} del carrito`;
 
     btnEliminar.addEventListener('click', () => {
@@ -83,6 +69,14 @@ function actualizarCarrito() {
   });
 
   totalSpan.textContent = total;
+
+  mostrarOcultarCarrito();
+}
+
+function mostrarOcultarCarrito() {
+  const carritoDiv = document.getElementById('carrito-flotante');
+  if (!carritoDiv) return;
+  carritoDiv.style.display = carrito.length > 0 ? 'block' : 'none';
 }
 
 function agregarAlCarrito(nombre, valor) {
@@ -100,11 +94,9 @@ function agregarAlCarrito(nombre, valor) {
 function eliminarProducto(indice) {
   if (indice < 0 || indice >= carrito.length) return;
 
-  // Reducir el total según la cantidad y valor del producto a eliminar
   const producto = carrito[indice];
   total -= producto.valor * producto.cantidad;
 
-  // Eliminar producto del carrito
   carrito.splice(indice, 1);
 
   actualizarCarrito();
@@ -145,7 +137,6 @@ function asignarEventosComprar() {
       }
 
       agregarAlCarrito(producto.nombre, producto.valor);
-      // alert(`Producto "${producto.nombre}" agregado al carrito.`); // Mensaje deshabilitado
     });
   });
 }
