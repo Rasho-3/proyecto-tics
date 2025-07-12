@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let carrito = [];
 
+  // Carga carrito desde localStorage
   function cargarCarrito() {
     const carritoGuardado = localStorage.getItem(STORAGE_KEY);
     if (carritoGuardado) {
@@ -19,10 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Guarda carrito en localStorage
   function guardarCarrito() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(carrito));
   }
 
+  // Actualiza la interfaz del carrito
   function actualizarCarritoUI() {
     if (!carritoFlotante) return;
 
@@ -60,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carritoFlotante.innerHTML = html;
 
-    // Añadir eventos para eliminar productos
+    // Eventos para eliminar productos
     const btnsEliminar = carritoFlotante.querySelectorAll('.btn-eliminar');
     btnsEliminar.forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -74,15 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Mostrar u ocultar carrito
   function toggleCarrito() {
     if (!carritoFlotante) return;
-    if (carritoFlotante.style.display === 'block') {
-      carritoFlotante.style.display = 'none';
-    } else {
-      carritoFlotante.style.display = 'block';
-    }
+    carritoFlotante.style.display = carritoFlotante.style.display === 'block' ? 'none' : 'block';
   }
 
+  // Agregar producto al carrito (sin alert)
   function agregarAlCarrito(nombre, precio) {
     const productoExistente = carrito.find(item => item.nombre === nombre);
     if (productoExistente) {
@@ -92,9 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     guardarCarrito();
     actualizarCarritoUI();
-    // Se elimina la alerta para no mostrar notificación emergente
   }
 
+  // Evento para botón flotante del carrito
   if (botonCarrito) {
     botonCarrito.addEventListener('click', toggleCarrito);
   }
@@ -102,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
   cargarCarrito();
   actualizarCarritoUI();
 
-  // Detectar botones de compra
+  // Detectar botones "Comprar" y asignar evento para agregar al carrito
   const botonesCompra = Array.from(document.querySelectorAll('button'))
     .filter(btn => btn.textContent.trim().toLowerCase().startsWith('comprar'));
 
@@ -111,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let nombreProducto = boton.textContent.trim().replace(/^comprar\s+/i, '');
       let precioProducto = null;
 
+      // Buscar precio en el DOM cercano
       let precioElem = boton.closest('main')?.querySelector('.precio');
       if (!precioElem) {
         precioElem = boton.parentElement.querySelector('.precio') || boton.parentElement.parentElement.querySelector('.precio');
