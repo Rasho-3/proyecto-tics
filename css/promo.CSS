@@ -142,3 +142,24 @@ main h1 {
     box-shadow: 0 6px 15px rgba(12, 192, 223, 0.9);
     transform: translateY(-3px);
 }
+/* Estilo para enlaces que actúan como botones */
+.boton-comprar {
+    background-color: #0cc0df;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(12, 192, 223, 0.6);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.boton-comprar:hover {
+    background-color: #09a8c0;
+    box-shadow: 0 6px 15px rgba(12, 192, 223, 0.9);
+    transform: translateY(-3px);
+}
