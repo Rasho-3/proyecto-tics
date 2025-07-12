@@ -1,57 +1,74 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>STENSA - Electrónica y Robótica</title>
-    <link rel="stylesheet" href="Stensa.CSS">
+    <meta charset="UTF-8" />
+    <title>Inicio</title>
+    <link rel="stylesheet" href="css/inicio.css" />
 </head>
 <body>
-    <header>
-        <h1>Bienvenido a STENSA</h1>
-        <nav>
-            <button onclick="location.href='ProductosStensa.html'">Productos</button>
-            <button onclick="location.href='PromocionesStensa.html'">Promociones</button>
-        </nav>
-    </header>
+    <nav>
+        <ul>
+            <!-- Opciones Inicio y Productos eliminadas para esta página -->
+            <!-- Puedes agregar otras opciones aquí si quieres -->
+        </ul>
+    </nav>
 
     <main>
-        <section>
-            <h2>Ofertas Destacadas</h2>
-            <p>Explora nuestras promociones especiales en kits y componentes.</p>
+        <h1>Bienvenido a STENSA</h1>
+
+        <div class="imagen-principal">
+            <img src="proyecto.Tics/minisumo_robot.png" alt="Minisumo Robot" />
+        </div>
+
+        <section class="descripcion-principal">
+            <p>
+                El Minisumo es un pequeño robot de competición diseñado para participar en torneos de sumo robótico, donde el objetivo es sacar al oponente del ring usando estrategias y sensores.
+            </p>
         </section>
+
+        <div class="botones-navegacion">
+            <a href="ProductosStensa.html" class="boton">Ver Productos</a>
+            <a href="PromocionesStensa.html" class="boton">Ver Promociones</a>
+        </div>
+
+        <div class="imagen-hover-container">
+            <img src="proyecto.Tics/partedeabajo.png" alt="Parte de abajo" />
+        </div>
     </main>
 
-    <button id="boton-carrito" style="
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1001;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 15px;
-      cursor: pointer;
-      font-size: 16px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    ">🛒 Carrito</button>
+    <!-- Botón flotante del carrito -->
+    <button id="boton-carrito" aria-label="Mostrar carrito" title="Mostrar carrito" style="
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 16px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    ">🛒</button>
 
-    <div id="carrito-flotante" style="
-      display: none;
-      position: fixed;
-      top: 60px;
-      right: 20px;
-      background: white;
-      border: 1px solid #ccc;
-      padding: 15px;
-      max-width: 320px;
-      max-height: 400px;
-      overflow-y: auto;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      z-index: 1000;
-      border-radius: 8px;
+    <!-- Contenedor flotante del carrito -->
+    <div id="carrito-flotante" aria-live="polite" aria-atomic="true" role="region" style="
+        display: none;
+        position: fixed;
+        top: 60px;
+        right: 20px;
+        background: white;
+        border: 1px solid #ccc;
+        padding: 15px;
+        max-width: 320px;
+        max-height: 400px;
+        overflow-y: auto;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 1000;
+        border-radius: 8px;
     "></div>
 
-    <script src="carrito.js"></script>
+    <script src="js/carrito.js"></script>
 </body>
 </html>
