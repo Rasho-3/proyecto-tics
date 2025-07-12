@@ -49,6 +49,13 @@ main section {
     padding: 25px 30px;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(12, 192, 223, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover en toda la tarjeta */
+main section:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(12, 192, 223, 0.8);
 }
 
 /* Títulos de sección */
@@ -101,5 +108,4 @@ main section button {
 main section button:hover {
     background-color: #09a8c0;
     transform: translateY(-4px);
-}
 }
