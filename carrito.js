@@ -21,23 +21,42 @@ let total = 0;
 function crearCarritoFlotante() {
   const carritoDiv = document.createElement('div');
   carritoDiv.id = 'carrito-flotante';
-
   carritoDiv.innerHTML = `
     <h3>Carrito de Compras</h3>
     <ul id="lista-carrito"></ul>
     <div><strong>Total: Q<span id="total-carrito">0</span></strong></div>
   `;
-
   document.body.appendChild(carritoDiv);
+}
+
+function crearIconoCarrito() {
+  const icono = document.createElement('div');
+  icono.id = 'icono-carrito';
+  icono.title = 'Ver carrito';
+  icono.innerHTML = '🛒<span id="contador-carrito">0</span>';
+  document.body.appendChild(icono);
+
+  icono.addEventListener('click', () => {
+    const carrito = document.getElementById('carrito-flotante');
+    if (carrito) {
+      carrito.style.display = carrito.style.display === 'block' ? 'none' : 'block';
+    }
+  });
 }
 
 function actualizarCarrito() {
   const lista = document.getElementById('lista-carrito');
   const totalSpan = document.getElementById('total-carrito');
-  if (!lista || !totalSpan) return;
+  const contadorSpan = document.getElementById('contador-carrito');
+
+  if (!lista || !totalSpan || !contadorSpan) return;
 
   lista.innerHTML = '';
+  let totalCantidad = 0;
+
   carrito.forEach((item, index) => {
+    totalCantidad += item.cantidad;
+
     const li = document.createElement('li');
     li.style.display = 'flex';
     li.style.justifyContent = 'space-between';
@@ -69,7 +88,7 @@ function actualizarCarrito() {
   });
 
   totalSpan.textContent = total;
-
+  contadorSpan.textContent = totalCantidad;
   mostrarOcultarCarrito();
 }
 
@@ -96,7 +115,6 @@ function eliminarProducto(indice) {
 
   const producto = carrito[indice];
   total -= producto.valor * producto.cantidad;
-
   carrito.splice(indice, 1);
 
   actualizarCarrito();
@@ -143,6 +161,7 @@ function asignarEventosComprar() {
 
 document.addEventListener('DOMContentLoaded', () => {
   crearCarritoFlotante();
+  crearIconoCarrito();
   cargarCarrito();
   actualizarCarrito();
   asignarEventosComprar();
