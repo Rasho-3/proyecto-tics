@@ -19,40 +19,12 @@ let carrito = [];
 let total = 0;
 
 function crearCarritoFlotante() {
-  const carritoDiv = document.createElement('div');
-  carritoDiv.id = 'carrito-flotante';
-  carritoDiv.style.position = 'fixed';
-  carritoDiv.style.bottom = '10px';
-  carritoDiv.style.left = '50%';
-  carritoDiv.style.transform = 'translateX(-50%)';
-  carritoDiv.style.backgroundColor = 'white';
-  carritoDiv.style.border = '1px solid #ccc';
-  carritoDiv.style.borderRadius = '8px';
-  carritoDiv.style.padding = '10px 20px';
-  carritoDiv.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-  carritoDiv.style.zIndex = '1000';
-  carritoDiv.style.maxWidth = '400px';
-  carritoDiv.style.width = '90%';
-  carritoDiv.style.fontFamily = 'Arial, sans-serif';
-
+  const carritoDiv = document.getElementById('carrito-flotante');
   carritoDiv.innerHTML = `
     <h3 style="margin: 0 0 10px 0; font-size: 1.2em;">Carrito de Compras</h3>
     <ul id="lista-carrito" style="list-style:none; padding-left:0; max-height:150px; overflow-y:auto; margin-bottom:10px;"></ul>
     <div><strong>Total: Q<span id="total-carrito">0</span></strong></div>
   `;
-
-  document.body.appendChild(carritoDiv);
-}
-
-function actualizarPosicionImagenInferior() {
-  const imagenInferior = document.querySelector('.imagen-inferior');
-  if (!imagenInferior) return;
-
-  if (carrito.length > 0) {
-    imagenInferior.classList.add('movida-arriba');
-  } else {
-    imagenInferior.classList.remove('movida-arriba');
-  }
 }
 
 function actualizarCarrito() {
@@ -92,9 +64,6 @@ function actualizarCarrito() {
   });
 
   totalSpan.textContent = total;
-
-  // Actualiza posición de la imagen inferior según el carrito
-  actualizarPosicionImagenInferior();
 }
 
 function agregarAlCarrito(nombre, valor) {
@@ -136,8 +105,7 @@ function cargarCarrito() {
   if (totalGuardado) {
     total = parseInt(totalGuardado, 10);
   }
-
-  actualizarPosicionImagenInferior(); // Actualiza posición al cargar
+  actualizarCarrito();
 }
 
 function asignarEventosComprar() {
@@ -164,6 +132,20 @@ function asignarEventosComprar() {
 document.addEventListener('DOMContentLoaded', () => {
   crearCarritoFlotante();
   cargarCarrito();
-  actualizarCarrito();
   asignarEventosComprar();
+
+  const botonCarrito = document.getElementById('boton-carrito');
+  const carritoDiv = document.getElementById('carrito-flotante');
+
+  if (botonCarrito && carritoDiv) {
+    carritoDiv.style.display = 'none'; // oculto inicialmente
+
+    botonCarrito.addEventListener('click', () => {
+      if (carritoDiv.style.display === 'none') {
+        carritoDiv.style.display = 'block';
+      } else {
+        carritoDiv.style.display = 'none';
+      }
+    });
+  }
 });
