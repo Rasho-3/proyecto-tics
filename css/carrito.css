@@ -77,6 +77,7 @@
 #carrito-flotante button.vaciar-carrito:hover {
   background-color: #e68900;
 }
+
 #icono-carrito {
   position: fixed;
   bottom: 30px;
