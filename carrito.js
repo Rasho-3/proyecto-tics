@@ -20,6 +20,7 @@ let total = 0;
 
 function crearCarritoFlotante() {
   const carritoDiv = document.getElementById('carrito-flotante');
+  if (!carritoDiv) return;
   carritoDiv.innerHTML = `
     <h3 style="margin: 0 0 10px 0; font-size: 1.2em;">Carrito de Compras</h3>
     <ul id="lista-carrito" style="list-style:none; padding-left:0; max-height:150px; overflow-y:auto; margin-bottom:10px;"></ul>
@@ -130,22 +131,23 @@ function asignarEventosComprar() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const carritoDiv = document.getElementById('carrito-flotante');
+  const botonCarrito = document.getElementById('boton-carrito');
+
+  // Solo inicializar si existen los elementos en la página actual
+  if (!carritoDiv || !botonCarrito) return;
+
   crearCarritoFlotante();
   cargarCarrito();
   asignarEventosComprar();
 
-  const botonCarrito = document.getElementById('boton-carrito');
-  const carritoDiv = document.getElementById('carrito-flotante');
+  carritoDiv.style.display = 'none'; // oculto inicialmente
 
-  if (botonCarrito && carritoDiv) {
-    carritoDiv.style.display = 'none'; // oculto inicialmente
-
-    botonCarrito.addEventListener('click', () => {
-      if (carritoDiv.style.display === 'none') {
-        carritoDiv.style.display = 'block';
-      } else {
-        carritoDiv.style.display = 'none';
-      }
-    });
-  }
+  botonCarrito.addEventListener('click', () => {
+    if (carritoDiv.style.display === 'none') {
+      carritoDiv.style.display = 'block';
+    } else {
+      carritoDiv.style.display = 'none';
+    }
+  });
 });
