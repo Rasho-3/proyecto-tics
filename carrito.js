@@ -16,12 +16,10 @@ let carrito = [];
 let total = 0;
 
 function crearElementosCarritoYBoton() {
-  // Crear botón carrito
   const botonCarrito = document.createElement('button');
   botonCarrito.id = 'icono-carrito';
   botonCarrito.title = 'Ver carrito';
 
-  // Estilos inline para el botón
   Object.assign(botonCarrito.style, {
     position: 'fixed',
     top: '30px',
@@ -41,12 +39,10 @@ function crearElementosCarritoYBoton() {
     transition: 'background-color 0.3s ease, transform 0.2s ease',
     width: '50px',
     height: '50px',
-    position: 'fixed',
   });
 
   botonCarrito.textContent = '🛒';
 
-  // Crear contador dentro del botón
   const contador = document.createElement('span');
   contador.id = 'contador-carrito';
 
@@ -67,7 +63,6 @@ function crearElementosCarritoYBoton() {
   botonCarrito.appendChild(contador);
   document.body.appendChild(botonCarrito);
 
-  // Crear carrito flotante
   const carritoDiv = document.createElement('div');
   carritoDiv.id = 'carrito-flotante';
 
@@ -113,7 +108,6 @@ function crearElementosCarritoYBoton() {
 
   document.body.appendChild(carritoDiv);
 
-  // Evento para vaciar carrito
   carritoDiv.querySelector('.vaciar-carrito').addEventListener('click', () => {
     carrito = [];
     total = 0;
@@ -123,7 +117,6 @@ function crearElementosCarritoYBoton() {
     carritoDiv.style.display = 'none';
   });
 
-  // Evento para mostrar/ocultar carrito al clickear ícono
   botonCarrito.addEventListener('click', () => {
     carritoDiv.style.display = carritoDiv.style.display === 'block' ? 'none' : 'block';
     if (carritoDiv.style.display === 'block') actualizarCarrito();
@@ -242,10 +235,20 @@ function asignarEventosComprar() {
   });
 }
 
-// Inicialización al cargar página
 document.addEventListener('DOMContentLoaded', () => {
   crearElementosCarritoYBoton();
   cargarCarrito();
   actualizarCarrito();
   asignarEventosComprar();
 });
+
+// 🔍 Función de búsqueda de productos por nombre
+function buscarProductos() {
+  const query = document.getElementById("input-busqueda").value.toLowerCase();
+  const productosHTML = document.querySelectorAll(".producto");
+
+  productosHTML.forEach(producto => {
+    const texto = producto.textContent.toLowerCase();
+    producto.style.display = texto.includes(query) ? "block" : "none";
+  });
+}
