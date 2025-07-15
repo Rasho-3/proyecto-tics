@@ -11,6 +11,18 @@
     <link rel="stylesheet" href="css/carrito.css" />
 </head>
 <body>
+    <header>
+        <div id="barra-navegacion">
+            <h1>Bienvenido a STENSA</h1>
+
+            <!-- Barra de búsqueda -->
+            <form id="barra-busqueda" onsubmit="buscarProductos(); return false;">
+                <input type="text" id="input-busqueda" placeholder="Buscar productos..." />
+                <button type="submit">🔍</button>
+            </form>
+        </div>
+    </header>
+
     <nav>
         <ul>
             <!-- Menú (puedes agregar más si quieres) -->
@@ -18,8 +30,6 @@
     </nav>
 
     <main>
-        <h1>Bienvenido a STENSA</h1>
-
         <div class="imagen-principal">
             <img src="proyecto.Tics/minisumo_robot.png" alt="Minisumo Robot" />
         </div>
@@ -42,5 +52,18 @@
 
     <!-- Script del carrito -->
     <script src="js/carrito.js"></script>
+
+    <!-- Script de búsqueda -->
+    <script>
+        function buscarProductos() {
+            const query = document.getElementById("input-busqueda").value.toLowerCase();
+            const productos = document.querySelectorAll(".producto");
+
+            productos.forEach(producto => {
+                const nombre = producto.textContent.toLowerCase();
+                producto.style.display = nombre.includes(query) ? "block" : "none";
+            });
+        }
+    </script>
 </body>
 </html>
