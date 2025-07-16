@@ -1,69 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <title>Inicio</title>
-
-    <!-- Estilo principal de esta página -->
-    <link rel="stylesheet" href="css/inicio.css" />
-
-    <!-- Estilo del carrito (compartido entre páginas) -->
-    <link rel="stylesheet" href="css/carrito.css" />
+  <meta charset="UTF-8" />
+  <title>Productos STENSA</title>
+  <link rel="stylesheet" href="css/productos.css" />
+  <link rel="stylesheet" href="css/carrito.css" />
 </head>
 <body>
-    <header>
-        <div id="barra-navegacion">
-            <h1>Bienvenido a STENSA</h1>
+  <!-- Barra de navegación -->
+  <header>
+    <div id="barra-navegacion">
+      <h1>Productos STENSA</h1>
+      <!-- Barra de búsqueda -->
+      <form id="barra-busqueda" onsubmit="buscarProductos(); return false;">
+        <input type="text" id="input-busqueda" placeholder="Buscar productos..." />
+        <button type="submit">🔍</button>
+      </form>
+    </div>
+  </header>
 
-            <!-- Barra de búsqueda -->
-            <form id="barra-busqueda" onsubmit="buscarProductos(); return false;">
-                <input type="text" id="input-busqueda" placeholder="Buscar productos..." />
-                <button type="submit">🔍</button>
-            </form>
-        </div>
-    </header>
+  <button onclick="location.href='index.html'" style="margin: 20px 0 0 30px;">← Volver al Inicio</button>
 
-    <nav>
-        <ul>
-            <!-- Menú (puedes agregar más si quieres) -->
-        </ul>
-    </nav>
+  <main>
+    <div class="productos">
+      <section class="producto" data-nombre="L298N">
+        <h3>L298N</h3>
+        <a href="L298N.html">
+          <img src="proyecto.Tics/L298N.png" alt="L298N" />
+        </a>
+        <p>Driver para motores DC y paso a paso, ideal para controlar motores N20 con Arduino.</p>
+        <p class="precio">Q60 GTQ</p>
+        <button class="comprar-btn">Comprar</button>
+      </section>
 
-    <main>
-        <div class="imagen-principal">
-            <img src="proyecto.Tics/minisumo_robot.png" alt="Minisumo Robot" />
-        </div>
+      <section class="producto" data-nombre="Arduino UNO">
+        <h3>Arduino UNO</h3>
+        <a href="ArduinoUno.html">
+          <img src="proyecto.Tics/arduinouno.png" alt="Arduino UNO" />
+        </a>
+        <p>Placa microcontrolador perfecta para proyectos electrónicos.</p>
+        <p class="precio">Q150 GTQ</p>
+        <button class="comprar-btn">Comprar</button>
+      </section>
 
-        <section class="descripcion-principal">
-            <p>
-                El Minisumo es un pequeño robot de competición diseñado para participar en torneos de sumo robótico, donde el objetivo es sacar al oponente del ring usando estrategias y sensores.
-            </p>
-        </section>
+      <!-- Agrega acá los demás productos igual -->
 
-        <!-- Botones de navegación -->
-        <div class="botones-navegacion" style="margin-bottom: 20px;">
-            <a href="ProductosStensa.html" class="boton">Ver Productos</a>
-            <a href="PromocionesStensa.html" class="boton">Ver Promociones</a>
-        </div>
+    </div>
+  </main>
 
-        <!-- Imagen decorativa al final -->
-        <img src="proyecto.Tics/partedeabajo.png" alt="Parte de abajo" class="imagen-inferior">
-    </main>
-
-    <!-- Script del carrito -->
-    <script src="js/carrito.js"></script>
-
-    <!-- Script de búsqueda -->
-    <script>
-        function buscarProductos() {
-            const query = document.getElementById("input-busqueda").value.toLowerCase();
-            const productos = document.querySelectorAll(".producto");
-
-            productos.forEach(producto => {
-                const nombre = producto.textContent.toLowerCase();
-                producto.style.display = nombre.includes(query) ? "block" : "none";
-            });
-        }
-    </script>
+  <script src="js/carrito.js"></script>
 </body>
 </html>
