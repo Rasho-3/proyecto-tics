@@ -1,113 +1,105 @@
-/* Fondo y tipografía general */
+/* Estilos generales */
 body {
-    background-color: #1c1b1b;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
+  background: #121212;
+  color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  line-height: 1.6;
 }
 
-/* Título principal centrado */
-header h1 {
-    text-align: center;
-    font-size: 3em;
-    margin-bottom: 40px;
-    color: #ffffff;
-    text-shadow:
-        0 0 5px #0cc0df,
-        0 0 10px #0cc0df,
-        0 0 20px #0cc0df,
-        0 0 40px #0cc0df;
+/* Barra de navegación */
+#barra-navegacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #1e1e1e;
+  box-shadow: 0 0 15px #00eaff;
 }
 
-/* Botón volver al inicio */
-button {
-    background-color: #0cc0df;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(12, 192, 223, 0.6);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    margin-bottom: 40px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+#barra-navegacion h1 {
+  color: #00eaff;
+  font-size: 24px;
 }
 
-button:hover {
-    background-color: #09a8c0;
-    box-shadow: 0 6px 15px rgba(12, 192, 223, 0.9);
-    transform: translateY(-3px);
+#barra-busqueda {
+  display: flex;
+  align-items: center;
 }
 
-/* Contenedor productos en grid */
+#barra-busqueda input[type="text"] {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  font-size: 14px;
+  outline: none;
+  background-color: #2c2c2c;
+  color: white;
+}
+
+#barra-busqueda button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  background-color: #00eaff;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#barra-busqueda button:hover {
+  background-color: #00b6cc;
+}
+
+/* Main content */
+main {
+  max-width: 1100px;
+  margin: 30px auto;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 30px;
+}
+
 .productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 1100px;
-    margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
 }
 
-/* Cada producto */
 .producto {
-    background-color: #222121;
-    border-radius: 15px;
-    padding: 0;
-    box-shadow: 0 8px 20px rgba(12, 192, 223, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    overflow: hidden;
+  background: #232323;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #00eaff44;
+  padding: 18px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Enlace solo en la imagen */
-.link-producto {
-    display: inline-block;
-    text-decoration: none;
+.producto img {
+  width: 140px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 15px;
 }
 
-/* Imagen producto centrada horizontalmente */
-.link-producto img {
-    display: block;          /* Para que margin auto funcione */
-    margin-left: auto;       /* Centrado horizontal */
-    margin-right: auto;      /* Centrado horizontal */
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 10px rgba(12, 192, 223, 0.6);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.link-producto img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(12, 192, 223, 0.8);
-}
-
-/* Título producto: solo color azul, sin parecer enlace */
-.producto h2 {
-    color: #0cc0df;
-    cursor: default;
-    text-decoration: none;
-    margin-bottom: 10px;
-    font-size: 1.5em;
-}
-
-/* Descripción */
-.producto p {
-    color: #ccc;
-    font-size: 1em;
-    margin-bottom: 10px;
-}
-
-/* Precio destacado */
 .precio {
-    font-weight: bold;
-    color: #0cc0df;
-    font-size: 1.1em;
+  color: #00eaff;
+  font-weight: bold;
 }
 
+.comprar-btn {
+  padding: 8px 20px;
+  background: #00eaff;
+  border: none;
+  border-radius: 6px;
+  color: #000;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.comprar-btn:hover {
+  background: #00b6cc;
+}
