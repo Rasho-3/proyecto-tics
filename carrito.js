@@ -263,7 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     </a>
                     <p>Q${p.precio} GTQ</p>
                     <button class="btn-comprar" data-nombre="${p.nombre}" data-precio="${p.precio}">Comprar</button>
-                    <a href="${p.url}">Ver más</a>
                 `;
                 resultados.appendChild(card);
             });
