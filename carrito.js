@@ -1,20 +1,19 @@
 // --- PRODUCTOS Y CATÁLOGO ---
 const productos = [
-    { nombre: "L298N", valor: 60, precio: 60, img: "l298n.jpg", url: "L298N.html" },
-    { nombre: "Arduino Uno", valor: 150, precio: 150, img: "arduino_uno.jpg", url: "ArduinoUno.html" },
-    { nombre: "Motor N20", valor: 80, precio: 80, img: "motores_n20.jpg", url: "MotoresN20.html" },
-    { nombre: "Jumpers", valor: 70, precio: 70, img: "jumpers.jpg", url: "Jumpers.html" },
-    { nombre: "Sensor Ultrasónico", valor: 120, precio: 120, img: "sensor_ultrasonico.jpg", url: "SensorUltrasonico.html" },
-    { nombre: "Llantas", valor: 90, precio: 90, img: "llantas_carrito.jpg", url: "Llantas.html" },
-    { nombre: "Motorreductores", valor: 20, precio: 20, img: "motorreductores_amarillos.jpg", url: "Motorreductores.html" },
-    { nombre: "Arduino Nano", valor: 125, precio: 125, img: "arduino_nano.jpg", url: "ArduinoNano.html" },
-    { nombre: "ESP-32", valor: 450, precio: 450, img: "esp32.jpg", url: "ESP32.html" },
-    { nombre: "L293D", valor: 20, precio: 20, img: "l293d.jpg", url: "L293D.html" },
-    { nombre: "Sensor de Luz", valor: 35, precio: 35, img: "sensor_luz.jpg", url: "SensorLuz.html" },
-    { nombre: "Kit Básico", valor: 385, precio: 385, img: "kit_basico.jpg", url: "KitBasico.html" },
-    { nombre: "Kit Avanzado", valor: 800, precio: 800, img: "kit_avanzado.jpg", url: "KitAvanzado.html" },
-    { nombre: "Kit Profesional", valor: 1200, precio: 1200, img: "kit_profesional.jpg", url: "KitProfesional.html" }
+    { nombre: "L298N", valor: 60, precio: 60, img: "proyecto.Tics/L298N.png", url: "L298N.html" },
+    { nombre: "Arduino UNO", valor: 150, precio: 150, img: "proyecto.Tics/arduinouno.png", url: "ArduinoUno.html" },
+    { nombre: "Motor N20", valor: 80, precio: 80, img: "proyecto.Tics/motoresn20.png", url: "MotoresN20.html" },
+    { nombre: "Jumpers", valor: 70, precio: 70, img: "proyecto.Tics/jumpers.png", url: "Jumpers.html" },
+    { nombre: "Sensor Ultrasónico", valor: 120, precio: 120, img: "proyecto.Tics/sensor.png", url: "SensorUltrasonico.html" },
+    { nombre: "Llantas", valor: 90, precio: 90, img: "proyecto.Tics/llantas.png", url: "Llantas.html" },
+    { nombre: "Motorreductores", valor: 20, precio: 20, img: "proyecto.Tics/motores.png", url: "Motorreductores.html" },
+    { nombre: "Arduino Nano", valor: 125, precio: 125, img: "proyecto.Tics/arduinonano.png", url: "ArduinoNano.html" },
+    { nombre: "ESP-32", valor: 450, precio: 450, img: "proyecto.Tics/esp.png", url: "ESP32.html" },
+    { nombre: "L293D", valor: 20, precio: 20, img: "proyecto.Tics/l293d.png", url: "L293D.html" },
+    { nombre: "Sensor de Luz", valor: 35, precio: 35, img: "proyecto.Tics/sensorluz.png", url: "SensorLuz.html" }
+    // Pon aquí tus kits si tienes
 ];
+
 
 // --- VARIABLES DEL CARRITO ---
 let carrito = [];
