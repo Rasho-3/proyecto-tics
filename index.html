@@ -5,7 +5,6 @@
     <title>Inicio</title>
     <link rel="stylesheet" href="css/inicio.CSS">
     <style>
-        /* Estilos básicos para mejor visualización */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -72,10 +71,78 @@
             display: block;
             margin: 40px auto 0;
         }
+        /* Buscador estilos */
+        #buscador-inicio {
+            max-width: 900px;
+            margin: 25px auto 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px #0001;
+        }
+        #buscar-producto {
+            width: 100%;
+            padding: 13px 18px;
+            font-size: 1.07em;
+            border-radius: 7px;
+            border: 2px solid #1976d2;
+            margin-bottom: 8px;
+        }
+        #resultados-busqueda {
+            margin-top: 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 13px;
+        }
+        .card-busqueda {
+            background: #e3f2fd;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            box-shadow: 0 1px 4px #0000001a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card-busqueda img {
+            max-width: 100%;
+            max-height: 110px;
+            object-fit: contain;
+            margin-bottom: 6px;
+        }
+        .card-busqueda h4 {
+            margin: 6px 0 3px 0;
+            font-size: 1.08em;
+        }
+        .card-busqueda p {
+            font-weight: bold;
+            color: #1976d2;
+        }
+        .card-busqueda button {
+            background: #1976d2;
+            color: #fff;
+            border-radius: 6px;
+            padding: 7px 17px;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        .card-busqueda button:hover {
+            background: #0d47a1;
+        }
+        #no-resultados {
+            display: none;
+            color: #d32f2f;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+        }
         @media (max-width: 600px) {
             main { padding: 10px; }
             .imagen-principal img,
             .imagen-inferior { max-width: 95vw; }
+            #buscador-inicio { padding: 10px; }
         }
     </style>
 </head>
@@ -87,6 +154,13 @@
             <li><a href="ProductosStensa.html">Productos</a></li>
         </ul>
     </nav>
+
+    <!-- Buscador de Productos EN INICIO -->
+    <section id="buscador-inicio">
+        <input type="text" id="buscar-producto" placeholder="Buscar productos..." autocomplete="off"/>
+        <div id="resultados-busqueda"></div>
+        <p id="no-resultados">No se encontraron productos.</p>
+    </section>
 
     <main>
         <h1 style="text-align:center;">Bienvenido a STENSA</h1>
@@ -109,7 +183,8 @@
         <img src="proyecto.Tics/partedeabajo.png" alt="Parte de abajo" class="imagen-inferior">
     </main>
 
-    <!-- Enlazamos el archivo JavaScript externo para el carrito flotante -->
+    <!-- Scripts del carrito flotante y buscador -->
     <script src="carrito.js"></script>
+    <script src="buscador.js"></script>
 </body>
 </html>
