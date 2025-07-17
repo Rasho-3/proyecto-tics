@@ -17,10 +17,21 @@ header {
 }
 
 header h1 {
+  text-align: center;
   color: #00eaff;
-  font-size: 2em;
-  margin: 0 0 16px 0;
-  letter-spacing: 2px;
+  font-size: 2.4em;
+  font-weight: bold;
+  margin: 0 0 24px 0;
+  letter-spacing: 1.8px;
+  font-family: Arial, sans-serif;
+  background: none;
+  border: none;
+  text-shadow:
+    0 0 6px #00eaffB0,
+    0 2px 12px #00203380,
+    0 6px 32px #1bdcff33;
+}
+
 }
 
 header button {
