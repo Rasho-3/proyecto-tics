@@ -3,98 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <title>Productos STENSA</title>
-    <link rel="stylesheet" href="Productos.css">
+    <link rel="stylesheet" href="css/Productos.css">
+    <link rel="stylesheet" href="css/carrito.css">
 </head>
 <body>
     <header>
         <h1 style="text-align:center;">Productos STENSA</h1>
+        <form id="barra-busqueda" onsubmit="buscarProductos(); return false;" style="text-align:center; margin: 1em 0;">
+            <input type="text" id="input-busqueda" placeholder="Buscar productos..." />
+            <button type="submit">🔍</button>
+        </form>
+        <button onclick="location.href='index.html'">← Volver al Inicio</button>
     </header>
-
-    <button onclick="location.href='index.html'">← Volver al Inicio</button>
 
     <main>
         <div class="productos">
 
+            <!-- L298N -->
             <section class="producto">
-                <h2><a href="L298N.html">L298N</a></h2>
-                <img src="l298n.jpg" alt="L298N">
-                <p>Driver para motores DC y paso a paso.</p>
+                <h2>L298N</h2>
+                <a href="L298N.html">
+                    <img src="proyecto.Tics/L298N.png" alt="L298N">
+                </a>
+                <p>Driver para motores DC y paso a paso, ideal para controlar motores N20 con Arduino.</p>
                 <p class="precio">Precio: Q60 GTQ</p>
                 <button class="btn-comprar" data-nombre="L298N" data-precio="60">Comprar</button>
             </section>
+
+            <!-- Arduino UNO -->
             <section class="producto">
-                <h2><a href="ArduinoUno.html">Arduino UNO</a></h2>
-                <img src="arduino_uno.jpg" alt="Arduino UNO">
-                <p>Placa de desarrollo basada en ATmega328P, perfecta para proyectos electrónicos.</p>
+                <h2>Arduino UNO</h2>
+                <a href="ArduinoUno.html">
+                    <img src="proyecto.Tics/arduinouno.png" alt="Arduino UNO">
+                </a>
+                <p>Placa de desarrollo microcontrolador basada en ATmega328P, perfecta para proyectos electrónicos.</p>
                 <p class="precio">Precio: Q150 GTQ</p>
-                <button class="btn-comprar" data-nombre="Arduino Uno" data-precio="150">Comprar</button>
+                <button class="btn-comprar" data-nombre="Arduino UNO" data-precio="150">Comprar</button>
             </section>
+
+            <!-- Motores N20 -->
             <section class="producto">
-                <h2><a href="MotoresN20.html">Motores N20</a></h2>
-                <img src="motores_n20.jpg" alt="Motores N20">
-                <p>Motores eléctricos compactos y eficientes, usados en robots y dispositivos pequeños.</p>
+                <h2>Motores N20 - Motores DC Miniatura</h2>
+                <a href="MotoresN20.html">
+                    <img src="proyecto.Tics/motoresn20.png" alt="Motores N20">
+                </a>
+                <p>Motores eléctricos compactos y eficientes, usados en robots y pequeños dispositivos.</p>
                 <p class="precio">Precio: Q80 GTQ</p>
-                <button class="btn-comprar" data-nombre="Motor N20" data-precio="80">Comprar</button>
+                <button class="btn-comprar" data-nombre="Motores N20" data-precio="80">Comprar</button>
             </section>
+
+            <!-- Jumpers -->
             <section class="producto">
-                <h2><a href="Jumpers.html">Jumpers</a></h2>
-                <img src="jumpers.jpg" alt="Jumpers">
+                <h2>Jumpers - Cables de Conexión para Proyectos Electrónicos</h2>
+                <a href="Jumpers.html">
+                    <img src="proyecto.Tics/jumpers.png" alt="Jumpers Macho Macho, Hembra Macho">
+                </a>
                 <p>Cables de conexión para protoboards y placas, esenciales para prototipos electrónicos.</p>
                 <p class="precio">Precio: Q70 GTQ</p>
                 <button class="btn-comprar" data-nombre="Jumpers" data-precio="70">Comprar</button>
             </section>
+
+            <!-- Sensor Ultrasónico -->
             <section class="producto">
-                <h2><a href="SensorUltrasonico.html">Sensor Ultrasónico</a></h2>
-                <img src="sensor_ultrasonico.jpg" alt="Sensor Ultrasónico">
-                <p>Sensor para medir distancia mediante ultrasonido, común en robótica y automatización.</p>
+                <h2>Sensor Ultrasónico</h2>
+                <a href="SensorUltrasonico.html">
+                    <img src="proyecto.Tics/sensor.png" alt="Sensor Ultrasónico">
+                </a>
+                <p>Sensor para medir distancia mediante ondas ultrasónicas, común en robótica y automatización.</p>
                 <p class="precio">Precio: Q120 GTQ</p>
                 <button class="btn-comprar" data-nombre="Sensor Ultrasónico" data-precio="120">Comprar</button>
             </section>
+
+            <!-- Llantas de carrito -->
             <section class="producto">
-                <h2><a href="Llantas.html">Llantas de carrito</a></h2>
-                <img src="llantas_carrito.jpg" alt="Llantas de carrito">
+                <h2>Llantas de carrito de juguete</h2>
+                <a href="Llantas.html">
+                    <img src="proyecto.Tics/llantas.png" alt="Llantas de carrito de juguete">
+                </a>
                 <p>Juego de llantas pequeñas ideales para robots y vehículos a escala.</p>
                 <p class="precio">Precio: Q90 GTQ</p>
                 <button class="btn-comprar" data-nombre="Llantas" data-precio="90">Comprar</button>
             </section>
+
+            <!-- Motorreductores amarillos -->
             <section class="producto">
-                <h2><a href="Motorreductores.html">Motorreductores amarillos</a></h2>
-                <img src="motorreductores_amarillos.jpg" alt="Motorreductores amarillos">
-                <p>Motorreductores compactos con carcasa amarilla, usados para controlar velocidad y torque.</p>
+                <h2>Motorreductores amarillos</h2>
+                <a href="Motorreductores.html">
+                    <img src="proyecto.Tics/motores.png" alt="Motorreductores amarillos">
+                </a>
+                <p>Motorreductores compactos con carcasa amarilla, usados para control preciso de velocidad y torque.</p>
                 <p class="precio">Precio: Q20 GTQ</p>
                 <button class="btn-comprar" data-nombre="Motorreductores" data-precio="20">Comprar</button>
             </section>
+
+            <!-- Arduino Nano -->
             <section class="producto">
-                <h2><a href="ArduinoNano.html">Arduino Nano</a></h2>
-                <img src="arduino_nano.jpg" alt="Arduino Nano">
-                <p>Placa microcontroladora pequeña y versátil, ideal para proyectos con poco espacio.</p>
+                <h2>Arduino Nano</h2>
+                <a href="ArduinoNano.html">
+                    <img src="proyecto.Tics/arduinonano.png" alt="Arduino Nano">
+                </a>
+                <p>Placa microcontroladora pequeña y versátil, ideal para proyectos con espacio limitado.</p>
                 <p class="precio">Precio: Q125 GTQ</p>
                 <button class="btn-comprar" data-nombre="Arduino Nano" data-precio="125">Comprar</button>
             </section>
+
+            <!-- ESP-32 -->
             <section class="producto">
-                <h2><a href="ESP32.html">ESP-32</a></h2>
-                <img src="esp32.jpg" alt="ESP-32">
-                <p>Módulo con WiFi y Bluetooth integrado, ideal para proyectos IoT.</p>
+                <h2>ESP-32</h2>
+                <a href="ESP32.html">
+                    <img src="proyecto.Tics/esp.png" alt="ESP-32">
+                </a>
+                <p>Módulo potente con WiFi y Bluetooth integrado, perfecto para proyectos IoT y conectividad inalámbrica.</p>
                 <p class="precio">Precio: Q450 GTQ</p>
                 <button class="btn-comprar" data-nombre="ESP-32" data-precio="450">Comprar</button>
             </section>
+
+            <!-- L293D -->
             <section class="producto">
-                <h2><a href="L293D.html">L293D</a></h2>
-                <img src="l293d.jpg" alt="L293D">
-                <p>Driver de puente H para motores DC y paso a paso.</p>
+                <h2>L293D</h2>
+                <a href="L293D.html">
+                    <img src="proyecto.Tics/l293d.png" alt="L293D">
+                </a>
+                <p>Driver de puente H para controlar motores DC y paso a paso con facilidad y eficiencia.</p>
                 <p class="precio">Precio: Q20 GTQ</p>
                 <button class="btn-comprar" data-nombre="L293D" data-precio="20">Comprar</button>
             </section>
+
+            <!-- Sensor de luz -->
             <section class="producto">
-                <h2><a href="SensorLuz.html">Sensor de Luz</a></h2>
-                <img src="sensor_luz.jpg" alt="Sensor de Luz">
-                <p>Sensor LDR para detectar niveles de luz ambiental, útil en automatización y domótica.</p>
+                <h2>Sensor de luz</h2>
+                <a href="SensorLuz.html">
+                    <img src="proyecto.Tics/sensorluz.png" alt="Sensor de luz">
+                </a>
+                <p>Sensor que detecta niveles de luz ambiental, útil para automatización y proyectos de iluminación.</p>
                 <p class="precio">Precio: Q35 GTQ</p>
-                <button class="btn-comprar" data-nombre="Sensor de Luz" data-precio="35">Comprar</button>
+                <button class="btn-comprar" data-nombre="Sensor de luz" data-precio="35">Comprar</button>
             </section>
 
         </div>
     </main>
-    <script src="carrito.js"></script>
+
+    <script src="js/carrito.js"></script>
+    <!-- Si tienes el script de búsqueda, inclúyelo aquí -->
+    <script>
+      function buscarProductos() {
+        const input = document.getElementById('input-busqueda').value.toLowerCase();
+        const productos = document.querySelectorAll('.producto');
+        productos.forEach(prod => {
+          const texto = prod.textContent.toLowerCase();
+          prod.style.display = texto.includes(input) ? '' : 'none';
+        });
+      }
+    </script>
 </body>
 </html>
