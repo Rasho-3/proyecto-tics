@@ -11,41 +11,26 @@ const productos = [
     { nombre: "ESP-32", valor: 450, precio: 450, img: "esp32.jpg", url: "ESP32.html" },
     { nombre: "L293D", valor: 20, precio: 20, img: "l293d.jpg", url: "L293D.html" },
     { nombre: "Sensor de Luz", valor: 35, precio: 35, img: "sensor_luz.jpg", url: "SensorLuz.html" },
-    // Puedes añadir tus kits aquí si deseas buscarlos también...
     { nombre: "Kit Básico", valor: 385, precio: 385, img: "kit_basico.jpg", url: "KitBasico.html" },
     { nombre: "Kit Avanzado", valor: 800, precio: 800, img: "kit_avanzado.jpg", url: "KitAvanzado.html" },
     { nombre: "Kit Profesional", valor: 1200, precio: 1200, img: "kit_profesional.jpg", url: "KitProfesional.html" }
 ];
 
-// --- CARRITO JS (INTEGRADO) ---
+// --- CARRITO JS (SIN ESTILO) ---
 let carrito = [];
 let total = 0;
 
-// Carrito flotante ESQUINA INFERIOR DERECHA
 function crearCarritoFlotante() {
     if (document.getElementById('carrito-flotante')) return;
     const carritoDiv = document.createElement('div');
     carritoDiv.id = 'carrito-flotante';
-    carritoDiv.style.position = 'fixed';
-    carritoDiv.style.bottom = '10px';
-    carritoDiv.style.right = '20px';
-    carritoDiv.style.left = 'unset';
-    carritoDiv.style.transform = 'unset';
-    carritoDiv.style.backgroundColor = 'white';
-    carritoDiv.style.border = '1px solid #ccc';
-    carritoDiv.style.borderRadius = '8px';
-    carritoDiv.style.padding = '10px 20px';
-    carritoDiv.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-    carritoDiv.style.zIndex = '1000';
-    carritoDiv.style.maxWidth = '400px';
-    carritoDiv.style.width = '90%';
-    carritoDiv.style.fontFamily = 'Arial, sans-serif';
 
     carritoDiv.innerHTML = `
-        <h3 style="margin:0 0 10px 0; font-size:1.2em;">Carrito de Compras</h3>
-        <ul id="lista-carrito" style="list-style:none; padding-left:0; max-height:150px; overflow-y:auto; margin-bottom:10px;"></ul>
+        <h3>Carrito de Compras</h3>
+        <ul id="lista-carrito"></ul>
         <div><strong>Total: Q<span id="total-carrito">0</span></strong></div>
     `;
+
     document.body.appendChild(carritoDiv);
 }
 
@@ -57,23 +42,12 @@ function actualizarCarrito() {
     lista.innerHTML = '';
     carrito.forEach((item, index) => {
         const li = document.createElement('li');
-        li.style.display = 'flex';
-        li.style.justifyContent = 'space-between';
-        li.style.alignItems = 'center';
-        li.style.marginBottom = '6px';
 
         const texto = document.createElement('span');
         texto.textContent = `${item.nombre} x${item.cantidad} (Q${item.valor * item.cantidad})`;
 
         const btnEliminar = document.createElement('button');
         btnEliminar.textContent = 'Eliminar';
-        btnEliminar.style.marginLeft = '10px';
-        btnEliminar.style.backgroundColor = '#e74c3c';
-        btnEliminar.style.color = 'white';
-        btnEliminar.style.border = 'none';
-        btnEliminar.style.borderRadius = '4px';
-        btnEliminar.style.padding = '2px 6px';
-        btnEliminar.style.cursor = 'pointer';
         btnEliminar.title = `Eliminar ${item.nombre} del carrito`;
 
         btnEliminar.addEventListener('click', () => {
@@ -121,15 +95,13 @@ function cargarCarrito() {
     if (totalGuardado) total = parseInt(totalGuardado, 10);
 }
 
-// --- BUSCADOR JS (INTEGRADO) ---
-// Puedes poner esto dentro de DOMContentLoaded o dejarlo directo si tus elementos están ya en el HTML
+// --- BUSCADOR JS ---
 document.addEventListener('DOMContentLoaded', () => {
     crearCarritoFlotante();
     cargarCarrito();
     actualizarCarrito();
     asignarEventosComprarUniversal();
 
-    // --- Buscador dinámico de productos en index ---
     const input = document.getElementById("buscar-producto");
     const resultados = document.getElementById("resultados-busqueda");
     const mensajeNo = document.getElementById("no-resultados");
@@ -154,13 +126,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const card = document.createElement("div");
                 card.className = "card-busqueda";
                 card.innerHTML = `
-                    <a href="${p.url}" style="text-decoration:none;color:inherit;">
+                    <a href="${p.url}">
                         <img src="${p.img}" alt="${p.nombre}">
                         <h4>${p.nombre}</h4>
                     </a>
                     <p>Q${p.precio} GTQ</p>
                     <button class="btn-comprar" data-nombre="${p.nombre}" data-precio="${p.precio}">Comprar</button>
-                    <a href="${p.url}" style="display:inline-block;margin-top:5px;color:#1976d2;text-decoration:underline;font-size:.98em;">Ver más</a>
+                    <a href="${p.url}">Ver más</a>
                 `;
                 resultados.appendChild(card);
             });
@@ -168,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Listener universal para todos los botones de compra, productos y kits
+// Listener universal para botones comprar
 function asignarEventosComprarUniversal() {
     document.body.addEventListener('click', function (e) {
         if (e.target.tagName === 'BUTTON') {
@@ -178,7 +150,6 @@ function asignarEventosComprarUniversal() {
                 texto.startsWith('comprar')
             ) {
                 let nombre = null, valor = null;
-                // PRIORIDAD: data-nombre/data-precio
                 if (e.target.dataset && e.target.dataset.nombre && e.target.dataset.precio) {
                     nombre = e.target.dataset.nombre;
                     valor = parseInt(e.target.dataset.precio, 10);
