@@ -3,7 +3,7 @@
   --color-primario-hover: #09a8c0;
   --color-fondo: #121212;
   --color-texto: #ffffff;
-  --color-nav-fondo: #222222;
+  --color-nav-fondo: #1e1e1e;
   --color-boton-texto: #ffffff;
 }
 
@@ -27,15 +27,16 @@ html, body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: #1e1e1e;
-  box-shadow: 0 0 15px #00eaff;
+  background-color: var(--color-nav-fondo);
+  box-shadow: 0 0 15px var(--color-primario);
 }
 
 #barra-navegacion h1 {
-  color: #00eaff;
+  color: var(--color-primario);
   font-size: 24px;
 }
 
+/* Buscador */
 #barra-busqueda {
   display: flex;
   align-items: center;
@@ -55,17 +56,17 @@ html, body {
   padding: 8px 12px;
   border: none;
   border-radius: 0 20px 20px 0;
-  background-color: #00eaff;
+  background-color: var(--color-primario);
   color: #000;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background-color 0.3s;
 }
 
 #barra-busqueda button:hover {
-  background-color: #00b6cc;
+  background-color: var(--color-primario-hover);
 }
 
-/* Main content */
+/* Contenido principal */
 main {
   max-width: 1100px;
   background-color: #1e1e1e;
@@ -93,6 +94,7 @@ main h1 {
     0 0 40px var(--color-primario);
 }
 
+/* Imagen principal */
 .imagen-principal img {
   display: block;
   max-width: 350px;
@@ -109,6 +111,7 @@ main h1 {
   box-shadow: 0 12px 30px rgba(12, 192, 223, 0.9);
 }
 
+/* Descripción */
 .descripcion-principal {
   max-width: 650px;
   margin: 0 auto 40px auto;
@@ -117,6 +120,7 @@ main h1 {
   color: #ccc;
 }
 
+/* Botones principales */
 .botones-navegacion {
   display: flex;
   justify-content: center;
@@ -145,6 +149,7 @@ main h1 {
   outline: none;
 }
 
+/* Imagen inferior */
 .imagen-inferior {
   width: 100%;
   margin-top: 40px;
