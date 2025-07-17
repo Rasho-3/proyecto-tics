@@ -1,187 +1,30 @@
-/* Estilos generales */
-body {
-  background: #121212;
-  color: #f2f2f2;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  line-height: 1.6;
-}
-
-/* Header */
-header {
-  background: #1e1e1e;
-  box-shadow: 0 0 15px #00eaff44;
-  padding: 30px 0 18px 0;
-  border-radius: 0 0 18px 18px;
-  text-align: center;
-}
-
-header h1 {
-  text-align: center;
+/* Estilo destacado para el botón de volver al inicio */
+header .btn-volver-inicio {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 32px;
+  font-size: 1.05em;
+  font-family: inherit;
   color: #00eaff;
-  font-size: 2.4em;
+  background: linear-gradient(90deg, #151a1e 70%, #192b38 100%);
+  border: 2px solid #00eaff;
+  border-radius: 22px;
   font-weight: bold;
-  margin: 0 0 24px 0;
-  letter-spacing: 1.8px;
-  font-family: Arial, sans-serif;
-  background: none;
-  border: none;
-  text-shadow:
-    0 0 6px #00eaffB0,
-    0 2px 12px #00203380,
-    0 6px 32px #1bdcff33;
-}
-
-}
-
-header button {
-  background: #232323;
-  color: #00eaff;
-  border: 1px solid #00eaff;
-  border-radius: 20px;
-  padding: 8px 22px;
+  box-shadow: 0 0 16px #00eaff33;
   cursor: pointer;
-  font-size: 1em;
-  margin-top: 10px;
-  transition: background .2s, color .2s;
+  letter-spacing: 1px;
+  transition:
+    background 0.25s,
+    color 0.18s,
+    border-color 0.25s,
+    box-shadow 0.2s,
+    transform 0.17s;
 }
-header button:hover {
-  background: #00eaff;
-  color: #232323;
-}
-
-/* Barra de búsqueda */
-#barra-busqueda {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 0 15px 0;
-}
-#barra-busqueda input[type="text"] {
-  padding: 9px 15px;
-  border: none;
-  border-radius: 20px 0 0 20px;
-  font-size: 16px;
-  outline: none;
-  background-color: #232323;
-  color: #00eaff;
-  transition: background 0.2s;
-}
-#barra-busqueda input[type="text"]:focus {
-  background: #202530;
-}
-#barra-busqueda button {
-  padding: 9px 17px;
-  border: none;
-  border-radius: 0 20px 20px 0;
-  background-color: #00eaff;
+header .btn-volver-inicio:hover {
   color: #121212;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-#barra-busqueda button:hover {
-  background-color: #008a9e;
-}
-
-/* Main content */
-main {
-  max-width: 1200px;
-  margin: 30px auto;
-  background-color: #1e1e1e;
-  border-radius: 12px;
-  padding: 32px 20px;
-}
-
-/* Grilla de productos */
-.productos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
-}
-
-/* Tarjeta de producto */
-.producto {
-  background: #232323;
-  border-radius: 12px;
-  box-shadow: 0 2px 15px #00eaff22;
-  padding: 20px 15px;
-  width: 265px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform .16s, box-shadow .16s;
-  border: 1px solid #00eaff22;
-}
-.producto:hover {
-  transform: translateY(-5px) scale(1.025);
-  box-shadow: 0 8px 34px #00eaff44;
-}
-
-/* Imagen del producto */
-.producto img {
-  width: 140px;
-  height: 100px;
-  object-fit: contain;
-  margin-bottom: 16px;
-  background: #151a1e;
-  border-radius: 6px;
-  border: 1px solid #00eaff11;
-}
-
-/* Títulos y detalles */
-.producto h2 {
-  color: #00eaff;
-  font-size: 1.15em;
-  margin: 0.18em 0 0.3em 0;
-  text-align: center;
-}
-.producto p {
-  color: #ededed;
-  font-size: 0.99em;
-  text-align: center;
-  margin: 0.2em 0;
-}
-
-/* Precio */
-.precio {
-  color: #00eaff;
-  font-weight: bold;
-  background: #151a1e;
-  border-radius: 8px;
-  padding: 0.2em 1em;
-  margin: 0.5em 0;
-  font-size: 1.02em;
-}
-
-/* Botón Comprar */
-.btn-comprar, .comprar-btn {
-  padding: 10px 26px;
-  background: linear-gradient(90deg, #00eaff 60%, #00b6cc 100%);
-  border: none;
-  border-radius: 8px;
-  color: #121212;
-  font-weight: bold;
-  margin-top: 15px;
-  font-size: 1em;
-  cursor: pointer;
-  box-shadow: 0 2px 6px #00eaff22;
-  transition: background 0.18s, color 0.18s, box-shadow 0.16s;
-}
-.btn-comprar:hover, .comprar-btn:hover {
-  background: linear-gradient(90deg, #00b6cc 60%, #00eaff 100%);
-  color: #232323;
-  box-shadow: 0 2px 20px #00eaff44;
-}
-
-/* Responsive */
-@media (max-width: 670px) {
-  main { padding: 12px 2px; }
-  .productos {
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-  }
-  .producto { width: 97vw; max-width: 340px; }
+  background: linear-gradient(90deg, #00eaff 80%, #00b6cc 100%);
+  border-color: #00b6cc;
+  box-shadow: 0 0 28px #00eaff88;
+  transform: translateY(-2px) scale(1.035);
+  text-shadow: 0 2px 10px #fff7, 0 0 18px #16eaff55;
 }
