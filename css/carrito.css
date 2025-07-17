@@ -1,3 +1,4 @@
+/* Contenedor del carrito flotante */
 #carrito-flotante {
   position: fixed;
   bottom: 100px;
@@ -12,15 +13,17 @@
   box-shadow: 0 4px 15px rgba(12, 192, 223, 0.9);
   z-index: 1100;
   font-family: Arial, sans-serif;
-  display: none;
+  display: none; /* inicia oculto */
 }
 
+/* Título del carrito */
 #carrito-flotante h3 {
   color: #0cc0df;
   text-align: center;
   margin-bottom: 10px;
 }
 
+/* Lista del carrito */
 #lista-carrito {
   list-style: none;
   padding: 0;
@@ -28,6 +31,7 @@
   color: #ccc;
 }
 
+/* Elementos de la lista */
 #lista-carrito li {
   display: flex;
   justify-content: space-between;
@@ -35,6 +39,7 @@
   margin-bottom: 6px;
 }
 
+/* Botón eliminar en cada producto */
 #lista-carrito button {
   background-color: #e74c3c;
   color: white;
@@ -50,6 +55,7 @@
   background-color: #c0392b;
 }
 
+/* Total en carrito */
 #carrito-flotante > div strong {
   color: #0cc0df;
   text-align: center;
@@ -57,7 +63,7 @@
   margin-top: 10px;
 }
 
-/* Estilo para botón Vaciar Carrito */
+/* Botón Vaciar Carrito */
 #carrito-flotante button.vaciar-carrito {
   background-color: #ff9800;
   color: white;
@@ -78,10 +84,11 @@
   background-color: #e68900;
 }
 
+/* Ícono del carrito visible arriba derecha */
 #icono-carrito {
   position: fixed;
-  top: 30px;     /* antes era bottom: 30px; ahora arriba */
-  right: 30px;   /* sigue a la derecha */
+  top: 30px;
+  right: 30px;
   background-color: #0cc0df;
   color: white;
   font-size: 24px;
@@ -91,10 +98,10 @@
   cursor: pointer;
   z-index: 1200;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  user-select: none;
 }
 
 #icono-carrito:hover {
   background-color: #09a8c0;
   transform: scale(1.1);
 }
-
