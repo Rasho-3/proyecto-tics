@@ -16,12 +16,116 @@ const productos = [
     { nombre: "Kit Profesional", valor: 1200, precio: 1200, img: "kit_profesional.jpg", url: "KitProfesional.html" }
 ];
 
-// --- CARRITO JS (SIN ESTILO) ---
+// --- VARIABLES DEL CARRITO ---
 let carrito = [];
 let total = 0;
 
+// --- FUNCION PARA INYECTAR EL CSS ---
+function insertarEstilosCarrito() {
+  if (document.getElementById('estilos-carrito')) return; // Evita duplicados
+
+  const estilos = `
+    #carrito-flotante {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      background-color: #1e1e1e;
+      color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      width: 350px;
+      max-height: 300px;
+      overflow-y: auto;
+      box-shadow: 0 4px 15px rgba(12, 192, 223, 0.9);
+      z-index: 1100;
+      font-family: Arial, sans-serif;
+      display: none;
+    }
+    #carrito-flotante h3 {
+      color: #0cc0df;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    #lista-carrito {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: #ccc;
+    }
+    #lista-carrito li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    #lista-carrito button {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    #lista-carrito button:hover {
+      background-color: #c0392b;
+    }
+    #carrito-flotante > div strong {
+      color: #0cc0df;
+      text-align: center;
+      display: block;
+      margin-top: 10px;
+    }
+    #carrito-flotante button.vaciar-carrito {
+      background-color: #ff9800;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(255, 152, 0, 0.7);
+      transition: background-color 0.3s ease;
+      margin-top: 15px;
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
+    #carrito-flotante button.vaciar-carrito:hover {
+      background-color: #e68900;
+    }
+    #icono-carrito {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      background-color: #0cc0df;
+      color: white;
+      font-size: 24px;
+      padding: 14px 16px;
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(12, 192, 223, 0.9);
+      cursor: pointer;
+      z-index: 1200;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      user-select: none;
+    }
+    #icono-carrito:hover {
+      background-color: #09a8c0;
+      transform: scale(1.1);
+    }
+  `;
+
+  const styleTag = document.createElement('style');
+  styleTag.id = 'estilos-carrito';
+  styleTag.textContent = estilos;
+  document.head.appendChild(styleTag);
+}
+
+// --- FUNCION PARA CREAR EL CARRITO Y EL ICONO ---
 function crearCarritoFlotante() {
     if (document.getElementById('carrito-flotante')) return;
+
     const carritoDiv = document.createElement('div');
     carritoDiv.id = 'carrito-flotante';
 
@@ -29,11 +133,35 @@ function crearCarritoFlotante() {
         <h3>Carrito de Compras</h3>
         <ul id="lista-carrito"></ul>
         <div><strong>Total: Q<span id="total-carrito">0</span></strong></div>
+        <button class="vaciar-carrito">Vaciar Carrito</button>
     `;
 
     document.body.appendChild(carritoDiv);
+
+    // Vaciar carrito
+    carritoDiv.querySelector('.vaciar-carrito').addEventListener('click', () => {
+        carrito = [];
+        total = 0;
+        actualizarCarrito();
+        guardarCarrito();
+        carritoDiv.style.display = 'none';
+    });
+
+    // Crear ícono carrito si no existe
+    if (!document.getElementById('icono-carrito')) {
+        const icono = document.createElement('div');
+        icono.id = 'icono-carrito';
+        icono.title = 'Mostrar/Ocultar carrito';
+        icono.textContent = '🛒';
+        document.body.appendChild(icono);
+
+        icono.addEventListener('click', () => {
+            carritoDiv.style.display = carritoDiv.style.display === 'block' ? 'none' : 'block';
+        });
+    }
 }
 
+// --- FUNCION PARA ACTUALIZAR EL CONTENIDO DEL CARRITO ---
 function actualizarCarrito() {
     const lista = document.getElementById('lista-carrito');
     const totalSpan = document.getElementById('total-carrito');
@@ -62,6 +190,7 @@ function actualizarCarrito() {
     totalSpan.textContent = total;
 }
 
+// --- FUNCIONES PARA AGREGAR Y ELIMINAR PRODUCTOS ---
 function agregarAlCarrito(nombre, valor) {
     const productoExistente = carrito.find(p => p.nombre === nombre);
     if (productoExistente) {
@@ -83,6 +212,7 @@ function eliminarProducto(indice) {
     guardarCarrito();
 }
 
+// --- FUNCIONES PARA GUARDAR Y CARGAR EN LOCALSTORAGE ---
 function guardarCarrito() {
     localStorage.setItem('carrito', JSON.stringify(carrito));
     localStorage.setItem('total', total.toString());
@@ -95,8 +225,9 @@ function cargarCarrito() {
     if (totalGuardado) total = parseInt(totalGuardado, 10);
 }
 
-// --- BUSCADOR JS ---
+// --- BUSCADOR ---
 document.addEventListener('DOMContentLoaded', () => {
+    insertarEstilosCarrito();
     crearCarritoFlotante();
     cargarCarrito();
     actualizarCarrito();
@@ -140,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Listener universal para botones comprar
+// --- LISTENER PARA LOS BOTONES COMPRAR ---
 function asignarEventosComprarUniversal() {
     document.body.addEventListener('click', function (e) {
         if (e.target.tagName === 'BUTTON') {
