@@ -303,3 +303,12 @@ function asignarEventosComprarUniversal() {
         }
     });
 }
+
+
+const estiloNoSubrayado = document.createElement('style');
+estiloNoSubrayado.textContent = `
+  .card-busqueda a, .card-busqueda a h4 {
+    text-decoration: none !important;
+  }
+`;
+document.head.appendChild(estiloNoSubrayado);
