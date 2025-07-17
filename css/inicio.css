@@ -192,13 +192,15 @@ h1.titulo-stensa {
 
 .imagen-inferior {
   width: 100%;
-  max-width: 370px;
+  max-width: none;
   display: block;
-  margin: 40px auto 0;
+  margin: 40px 0 0 0;
   background: #101319;
   border-radius: 10px;
   box-shadow: 0 2px 13px #00eaff1f;
   border: 1.5px solid #00eaff11;
+  object-fit: cover;
+
 }
 
 /* Responsive: móviles */
