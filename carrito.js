@@ -1,129 +1,158 @@
+// js/carrito.js
+
+const productos = [
+  { nombre: "L298N", valor: 60 },
+  { nombre: "Arduino Uno", valor: 150 },
+  { nombre: "Motor N20", valor: 80 },
+  { nombre: "Jumpers", valor: 70 },
+  { nombre: "Sensor Ultrasónico", valor: 120 },
+  { nombre: "Llantas", valor: 90 },
+  { nombre: "Motorreductores", valor: 20 },
+  { nombre: "Arduino Nano", valor: 125 },
+  { nombre: "ESP-32", valor: 450 },
+  { nombre: "L293D", valor: 20 },
+  { nombre: "Sensor de Luz", valor: 35 },
+  { nombre: "Kit Básico", valor: 385 },
+  { nombre: "Kit Avanzado", valor: 800 },
+  { nombre: "Kit Profesional", valor: 1200 }
+];
+
 let carrito = [];
 let total = 0;
 
-function crearElementosCarritoYBoton() {
-  // Crear botón carrito
-  const botonCarrito = document.createElement('button');
-  botonCarrito.id = 'icono-carrito';
-  botonCarrito.title = 'Ver carrito';
-  botonCarrito.textContent = '🛒';
-
-  // Contador dentro del botón
-  const contador = document.createElement('span');
-  contador.id = 'contador-carrito';
-  contador.textContent = '0';
-  botonCarrito.appendChild(contador);
-
-  // Estilos inline para botón carrito
-  Object.assign(botonCarrito.style, {
-    position: 'fixed',
-    top: '30px',
-    right: '30px',
-    backgroundColor: '#00eaff',
-    borderRadius: '50%',
-    border: 'none',
-    fontSize: '24px',
-    width: '50px',
-    height: '50px',
-    cursor: 'pointer',
-    boxShadow: '0 2px 20px #00eaff55',
-    zIndex: '1000',
-  });
-
-  document.body.appendChild(botonCarrito);
-
-  // Crear carrito flotante
+function crearCarritoFlotante() {
   const carritoDiv = document.createElement('div');
   carritoDiv.id = 'carrito-flotante';
-  carritoDiv.style.cssText = `
-    position: fixed;
-    top: 90px;
-    right: 30px;
-    background: #222;
-    color: #fff;
-    border: 2px solid #00eaff;
-    box-shadow: 0 0 18px #00eaff33;
-    border-radius: 10px;
-    width: 300px;
-    padding: 18px;
-    display: none;
-    z-index: 1100;
-  `;
+  carritoDiv.style.position = 'fixed';
+  carritoDiv.style.bottom = '10px';
+  carritoDiv.style.left = '50%';
+  carritoDiv.style.transform = 'translateX(-50%)';
+  carritoDiv.style.backgroundColor = 'white';
+  carritoDiv.style.border = '1px solid #ccc';
+  carritoDiv.style.borderRadius = '8px';
+  carritoDiv.style.padding = '10px 20px';
+  carritoDiv.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+  carritoDiv.style.zIndex = '1000';
+  carritoDiv.style.maxWidth = '400px';
+  carritoDiv.style.width = '90%';
+  carritoDiv.style.fontFamily = 'Arial, sans-serif';
 
   carritoDiv.innerHTML = `
-    <h2>Carrito</h2>
-    <ul id="carrito-lista" style="padding-left: 18px; max-height: 300px; overflow-y: auto;"></ul>
-    <p id="carrito-total"></p>
-    <button class="vaciar-carrito">Vaciar carrito</button>
+    <h3 style="margin: 0 0 10px 0; font-size: 1.2em;">Carrito de Compras</h3>
+    <ul id="lista-carrito" style="list-style:none; padding-left:0; max-height:150px; overflow-y:auto; margin-bottom:10px;"></ul>
+    <div><strong>Total: Q<span id="total-carrito">0</span></strong></div>
   `;
 
   document.body.appendChild(carritoDiv);
-
-  // Evento vaciar carrito
-  carritoDiv.querySelector('.vaciar-carrito').addEventListener('click', () => {
-    carrito = [];
-    total = 0;
-    actualizarCarrito();
-    carritoDiv.style.display = 'none';
-  });
-
-  // Mostrar/ocultar carrito al clickear el botón
-  botonCarrito.addEventListener('click', () => {
-    carritoDiv.style.display = carritoDiv.style.display === 'block' ? 'none' : 'block';
-    if (carritoDiv.style.display === 'block') actualizarCarrito();
-  });
 }
 
 function actualizarCarrito() {
-  const lista = document.getElementById('carrito-lista');
-  const totalElem = document.getElementById('carrito-total');
-  const contador = document.getElementById('contador-carrito');
+  const lista = document.getElementById('lista-carrito');
+  const totalSpan = document.getElementById('total-carrito');
+  if (!lista || !totalSpan) return;
 
   lista.innerHTML = '';
-  let sumaTotal = 0;
-
-  carrito.forEach(item => {
+  carrito.forEach((item, index) => {
     const li = document.createElement('li');
-    li.textContent = ${item.nombre} x${item.cantidad} = Q${item.precio * item.cantidad} GTQ;
+    li.style.display = 'flex';
+    li.style.justifyContent = 'space-between';
+    li.style.alignItems = 'center';
+    li.style.marginBottom = '6px';
+
+    const texto = document.createElement('span');
+    texto.textContent = `${item.nombre} x${item.cantidad} (Q${item.valor * item.cantidad})`;
+
+    const btnEliminar = document.createElement('button');
+    btnEliminar.textContent = 'Eliminar';
+    btnEliminar.style.marginLeft = '10px';
+    btnEliminar.style.backgroundColor = '#e74c3c';
+    btnEliminar.style.color = 'white';
+    btnEliminar.style.border = 'none';
+    btnEliminar.style.borderRadius = '4px';
+    btnEliminar.style.padding = '2px 6px';
+    btnEliminar.style.cursor = 'pointer';
+    btnEliminar.title = `Eliminar ${item.nombre} del carrito`;
+
+    btnEliminar.addEventListener('click', () => {
+      eliminarProducto(index);
+    });
+
+    li.appendChild(texto);
+    li.appendChild(btnEliminar);
     lista.appendChild(li);
-    sumaTotal += item.precio * item.cantidad;
   });
 
-  contador.textContent = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-  totalElem.textContent = 'Total: Q' + sumaTotal + ' GTQ';
+  totalSpan.textContent = total;
+}
+
+function agregarAlCarrito(nombre, valor) {
+  const productoExistente = carrito.find(p => p.nombre === nombre);
+  if (productoExistente) {
+    productoExistente.cantidad += 1;
+  } else {
+    carrito.push({ nombre, valor, cantidad: 1 });
+  }
+  total += valor;
+  actualizarCarrito();
+  guardarCarrito();
+}
+
+function eliminarProducto(indice) {
+  if (indice < 0 || indice >= carrito.length) return;
+
+  // Reducir el total según la cantidad y valor del producto a eliminar
+  const producto = carrito[indice];
+  total -= producto.valor * producto.cantidad;
+
+  // Eliminar producto del carrito
+  carrito.splice(indice, 1);
+
+  actualizarCarrito();
+  guardarCarrito();
+}
+
+function guardarCarrito() {
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+  localStorage.setItem('total', total.toString());
+}
+
+function cargarCarrito() {
+  const carritoGuardado = localStorage.getItem('carrito');
+  const totalGuardado = localStorage.getItem('total');
+
+  if (carritoGuardado) {
+    carrito = JSON.parse(carritoGuardado);
+  }
+  if (totalGuardado) {
+    total = parseInt(totalGuardado, 10);
+  }
 }
 
 function asignarEventosComprar() {
-  document.querySelectorAll('.comprar-btn').forEach(btn => {
-    btn.onclick = () => {
-      const productoElem = btn.closest('.producto');
-      const nombre = productoElem.querySelector('h3').textContent.trim();
-      const precioTexto = productoElem.querySelector('.precio').textContent;
-      const precio = Number(precioTexto.match(/\d+/)[0]);
+  const botones = Array.from(document.querySelectorAll('button')).filter(btn =>
+    btn.textContent.trim().toLowerCase().startsWith('comprar')
+  );
 
-      const itemExistente = carrito.find(item => item.nombre === nombre);
-      if (itemExistente) {
-        itemExistente.cantidad++;
-      } else {
-        carrito.push({ nombre, precio, cantidad: 1 });
+  botones.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const texto = btn.textContent.trim();
+      const nombreProducto = texto.replace(/^comprar\s+/i, '').trim();
+
+      const producto = productos.find(p => p.nombre.toLowerCase() === nombreProducto.toLowerCase());
+      if (!producto) {
+        alert('Producto no encontrado en la lista.');
+        return;
       }
 
-      actualizarCarrito();
-    };
+      agregarAlCarrito(producto.nombre, producto.valor);
+      // alert(`Producto "${producto.nombre}" agregado al carrito.`); // Mensaje deshabilitado
+    });
   });
 }
 
-// Función búsqueda productos
-function buscarProductos() {
-  const query = document.getElementById("input-busqueda").value.toLowerCase();
-  document.querySelectorAll(".producto").forEach(producto => {
-    const texto = producto.textContent.toLowerCase();
-    producto.style.display = texto.includes(query) ? "flex" : "none";
-  });
-}
-
-// Inicialización al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
-  crearElementosCarritoYBoton();
+  crearCarritoFlotante();
+  cargarCarrito();
+  actualizarCarrito();
   asignarEventosComprar();
 });
