@@ -1,157 +1,151 @@
-/* Estilo general */
-body {
-    background-color: #121212;
-    color: #f2f2f2;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+/* Colores base */
+:root {
+  --color-fondo: #121212;
+  --color-principal: #00eaff;
+  --color-texto: #f2f2f2;
+  --color-hover: #09a8c0;
+  --color-boton: #1a1a1a;
 }
 
-/* Barra de navegación */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  padding: 20px;
+}
+
+/* Navegación */
 nav {
-    background-color: #0d0d0d;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+  background-color: #1e1e1e;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px var(--color-principal);
 }
 
 nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 15px;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
 }
 
-nav li a {
-    color: #00eaff;
-    text-decoration: none;
-    font-weight: bold;
-    background-color: #00eaff;
-    color: #000;
-    padding: 8px 16px;
-    border-radius: 50px;
-    box-shadow: 0 0 10px #00eaff;
-    transition: all 0.3s ease;
+nav a {
+  color: var(--color-principal);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
-nav li a:hover {
-    background-color: #00bcd4;
-    box-shadow: 0 0 20px #00bcd4;
+nav a:hover {
+  color: var(--color-hover);
+  text-shadow: 0 0 5px var(--color-hover);
+}
+
+/* Botón de volver */
+button[onclick] {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 25px;
+  background: linear-gradient(145deg, #00eaff, #005d6e);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 10px var(--color-principal);
+}
+
+button[onclick]:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--color-hover);
 }
 
 /* Título principal */
 main h1 {
-    text-align: center;
-    font-size: 2.5em;
-    color: #00eaff;
-    text-shadow: 0 0 10px #00eaff;
-    margin: 40px 0 20px;
-}
-
-/* Botón volver al inicio */
-button {
-    background-color: #00eaff;
-    border: none;
-    color: #000;
-    padding: 10px 25px;
-    font-weight: bold;
-    border-radius: 25px;
-    box-shadow: 0 0 15px #00eaff;
-    cursor: pointer;
-    display: block;
-    margin: 20px auto;
-    transition: all 0.3s ease;
-}
-
-button:hover {
-    background-color: #00bcd4;
-    box-shadow: 0 0 25px #00bcd4;
+  text-align: center;
+  font-size: 2.8em;
+  color: var(--color-principal);
+  text-shadow: 0 0 10px var(--color-principal);
+  margin: 40px 0 30px;
 }
 
 /* Lista de promociones */
 .promociones-lista {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    padding: 40px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
 }
 
-/* Tarjeta de promoción */
+/* Tarjeta individual */
 .promocion {
-    background-color: #1e1e1e;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 234, 255, 0.2);
-    padding: 25px;
-    max-width: 350px;
-    flex: 1 1 300px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #1e1e1e;
+  border-radius: 15px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0, 234, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .promocion:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 25px rgba(0, 234, 255, 0.4);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 234, 255, 0.7);
 }
 
-/* Título de promoción */
+/* Título del kit */
 .promocion h3 a {
-    color: #00eaff;
-    text-decoration: none;
-    font-size: 1.5em;
-    font-weight: bold;
-    transition: text-shadow 0.3s ease;
+  color: var(--color-principal);
+  text-decoration: none;
+  font-size: 1.5em;
+  transition: text-shadow 0.3s;
 }
 
 .promocion h3 a:hover {
-    text-shadow: 0 0 8px #00eaff;
+  text-shadow: 0 0 10px var(--color-hover);
 }
 
-/* Descripción y precio */
-.promocion p {
-    color: #ccc;
-    margin: 10px 0;
-}
-
+/* Precio */
 .promocion .precio {
-    font-weight: bold;
-    color: #f2f2f2;
+  font-weight: bold;
+  color: #00ffcc;
+  margin-top: 10px;
 }
 
-/* Botón Comprar */
+/* Botón comprar */
 .btn-comprar {
-    background-color: #00eaff;
-    color: #000;
-    font-weight: bold;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 15px;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0 0 15px #00eaff;
-    transition: all 0.3s ease;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: linear-gradient(to right, #00eaff, #007a9c);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 8px #00eaff;
 }
 
 .btn-comprar:hover {
-    background-color: #00bcd4;
-    box-shadow: 0 0 25px #00bcd4;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00eaff;
 }
 
-/* Responsive */
-@media (max-width: 670px) {
-    .promociones-lista {
-        flex-direction: column;
-        align-items: center;
-    }
+/* Responsivo */
+@media (max-width: 768px) {
+  .promociones-lista {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
+  .promocion {
+    width: 90%;
+  }
 }
