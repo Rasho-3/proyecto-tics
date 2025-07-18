@@ -8,28 +8,32 @@ body {
   min-height: 100vh;
 }
 
-/* Header y Título Principal */
+/* HEADER Y TITULO PRINCIPAL ESTILO CATÁLOGO */
 header {
-  background: linear-gradient(90deg, #181f2c 40%, #1e3641 100%);
-  padding: 28px 0 18px 0;
+  background: #1e1e1e;
+  box-shadow: 0 0 15px #00eaff44;
+  padding: 30px 0 18px 0;
+  border-radius: 0 0 18px 18px;
   text-align: center;
-  box-shadow: 0 6px 22px #00eaff22;
 }
 
 header h1 {
+  text-align: center;
   color: #00eaff;
-  text-shadow:
-    0 0 22px #00eaffb0,
-    0 0 4px #00eaff,
-    0 2px 0 #111a22;
-  margin: 0 0 20px 0;
-  font-size: 2.1em;
+  font-size: 2.4em;
   font-weight: bold;
-  letter-spacing: 1.3px;
-  transition: text-shadow 0.25s;
+  margin: 0 0 24px 0;
+  letter-spacing: 1.8px;
+  font-family: Arial, sans-serif;
+  background: none;
+  border: none;
+  text-shadow:
+    0 0 6px #00eaffB0,
+    0 2px 12px #00203380,
+    0 6px 32px #1bdcff33;
 }
 
-/* Botones en el header */
+/* Botones en el header - mismo estilo que referencia */
 header button {
   background: linear-gradient(90deg, #00eaff 10%, #0099ff 80%);
   color: #151921;
@@ -51,7 +55,39 @@ header button:hover {
   transform: scale(1.04);
 }
 
-/* Main General */
+/* Si usas botón de volver con .btn-volver-inicio, que luzca igual que en el catálogo */
+header .btn-volver-inicio {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 32px;
+  font-size: 1.05em;
+  color: #00eaff;
+  background: linear-gradient(90deg, #151a1e 70%, #192b38 100%);
+  border: 2px solid #00eaff;
+  border-radius: 22px;
+  font-weight: bold;
+  box-shadow: 0 0 16px #00eaff33;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition:
+    background 0.25s,
+    color 0.18s,
+    border-color 0.25s,
+    box-shadow 0.2s,
+    transform 0.17s;
+}
+header .btn-volver-inicio:hover {
+  color: #121212;
+  background: linear-gradient(90deg, #00eaff 80%, #00b6cc 100%);
+  border-color: #00b6cc;
+  box-shadow: 0 0 28px #00eaff88;
+  transform: translateY(-2px) scale(1.035);
+  text-shadow: 0 2px 10px #fff7, 0 0 18px #16eaff55;
+}
+
+/* ------- El resto de tu estructura, igual ------- */
+
+/* MAIN GENERAL */
 main {
   max-width: 570px;
   background: #161b25e0;
@@ -62,7 +98,7 @@ main {
   min-width: 275px;
 }
 
-/* Secciones del Main */
+/* SECCIONES DEL MAIN */
 main section {
   margin-bottom: 27px;
 }
@@ -98,7 +134,7 @@ main p, main ul {
   color: #e5f6f9;
 }
 
-/* Precio destacado */
+/* PRECIO */
 main section strong,
 main section p strong {
   color: #00eaff;
@@ -109,7 +145,7 @@ main section p strong {
     0 0 1px #00eaff66;
 }
 
-/* Botón 'Comprar' */
+/* Botón "Comprar" del producto */
 main button {
   background: linear-gradient(90deg, #00eaff 0%, #00b7e6 85%);
   color: #191f26;
@@ -130,7 +166,7 @@ main button:hover {
   transform: scale(1.034);
 }
 
-/* Responsive (para móvil) */
+/* RESPONSIVE */
 @media (max-width: 650px) {
   main {
     max-width: 98vw;
@@ -142,9 +178,4 @@ main button:hover {
     padding: 0 4vw;
   }
   header {
-    padding: 15px 0 9px 0;
-  }
-  main h2 {
-    font-size: 1.09em;
-  }
-}
+    padding: 15px
