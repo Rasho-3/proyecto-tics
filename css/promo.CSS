@@ -1,151 +1,33 @@
-/* Colores base */
+/* Variables de colores para mantener consistencia */
 :root {
+  --color-primario: #0cc0df;
+  --color-primario-hover: #09a8c0;
   --color-fondo: #121212;
-  --color-principal: #00eaff;
-  --color-texto: #f2f2f2;
-  --color-hover: #09a8c0;
-  --color-boton: #1a1a1a;
+  --color-texto: #ffffff;
+  --color-titulo: #0cc0df;
+  --color-titulo-sombra: #09a8c0;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
+/* Estilos generales del body */
 body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--color-fondo);
   color: var(--color-texto);
-  padding: 20px;
 }
 
-/* Navegación */
-nav {
-  background-color: #1e1e1e;
-  padding: 10px 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 10px var(--color-principal);
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
-nav a {
-  color: var(--color-principal);
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: var(--color-hover);
-  text-shadow: 0 0 5px var(--color-hover);
-}
-
-/* Botón de volver */
-button[onclick] {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 25px;
-  background: linear-gradient(145deg, #00eaff, #005d6e);
-  border: none;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 1em;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 0 10px var(--color-principal);
-}
-
-button[onclick]:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px var(--color-hover);
-}
-
-/* Título principal */
-main h1 {
+/* Aplica estilo solo al primer h1 dentro del body de esta página */
+/* Así solo ese h1 tendrá el estilo, no otros */
+body > h1:first-of-type {
+  font-size: 2.8rem;
+  font-weight: 700;
   text-align: center;
-  font-size: 2.8em;
-  color: var(--color-principal);
-  text-shadow: 0 0 10px var(--color-principal);
-  margin: 40px 0 30px;
-}
-
-/* Lista de promociones */
-.promociones-lista {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-}
-
-/* Tarjeta individual */
-.promocion {
-  background-color: #1e1e1e;
-  border-radius: 15px;
-  padding: 20px;
-  width: 300px;
-  box-shadow: 0 0 10px rgba(0, 234, 255, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.promocion:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(0, 234, 255, 0.7);
-}
-
-/* Título del kit */
-.promocion h3 a {
-  color: var(--color-principal);
-  text-decoration: none;
-  font-size: 1.5em;
-  transition: text-shadow 0.3s;
-}
-
-.promocion h3 a:hover {
-  text-shadow: 0 0 10px var(--color-hover);
-}
-
-/* Precio */
-.promocion .precio {
-  font-weight: bold;
-  color: #00ffcc;
-  margin-top: 10px;
-}
-
-/* Botón comprar */
-.btn-comprar {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: linear-gradient(to right, #00eaff, #007a9c);
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 0 8px #00eaff;
-}
-
-.btn-comprar:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #00eaff;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .promociones-lista {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .promocion {
-    width: 90%;
-  }
+  margin: 40px 0 20px 0;
+  color: var(--color-titulo);
+  text-shadow:
+    0 0 5px var(--color-titulo-sombra),
+    0 0 10px var(--color-titulo-sombra),
+    0 0 20px var(--color-titulo-sombra),
+    0 0 30px var(--color-titulo);
+  letter-spacing: 2px;
 }
