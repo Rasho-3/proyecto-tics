@@ -1,33 +1,32 @@
-/* Estilo general */
+/* Estilos generales */
 body {
   background: #121212;
   color: #f2f2f2;
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
   line-height: 1.6;
 }
 
-/* Navegación superior */
+/* Navegación */
 nav {
-  background-color: #1e1e1e;
-  box-shadow: 0 0 10px #00eaff55;
-  padding: 12px 0;
-  border-radius: 0 0 12px 12px;
+  background: #1e1e1e;
+  box-shadow: 0 0 12px #00eaff44;
+  padding: 16px 0;
+  border-radius: 0 0 18px 18px;
   text-align: center;
 }
 nav ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 nav ul li {
   display: inline-block;
-  margin: 0 14px;
+  margin: 0 18px;
 }
 nav ul li a {
-  text-decoration: none;
   color: #00eaff;
+  text-decoration: none;
   font-weight: bold;
   font-size: 1.05em;
   transition: color 0.2s;
@@ -41,8 +40,8 @@ nav ul li a:hover {
 button {
   display: block;
   margin: 20px auto 0 auto;
-  padding: 10px 28px;
-  font-size: 1em;
+  padding: 10px 32px;
+  font-size: 1.05em;
   color: #00eaff;
   background: linear-gradient(90deg, #151a1e 70%, #192b38 100%);
   border: 2px solid #00eaff;
@@ -51,7 +50,7 @@ button {
   box-shadow: 0 0 16px #00eaff33;
   cursor: pointer;
   letter-spacing: 1px;
-  transition: background 0.25s, color 0.2s, border-color 0.25s, box-shadow 0.2s, transform 0.17s;
+  transition: background 0.25s, color 0.18s, border-color 0.25s, box-shadow 0.2s, transform 0.17s;
 }
 button:hover {
   color: #121212;
@@ -68,16 +67,19 @@ main {
   margin: 30px auto;
   background-color: #1e1e1e;
   border-radius: 12px;
-  padding: 32px 24px;
+  padding: 32px 20px;
   box-shadow: 0 0 12px #00eaff22;
 }
 
-/* Título de promociones */
+/* Título principal */
 main h1 {
   text-align: center;
   color: #00eaff;
-  font-size: 2em;
-  margin-bottom: 30px;
+  font-size: 2.4em;
+  font-weight: bold;
+  margin-bottom: 24px;
+  letter-spacing: 1.8px;
+  font-family: Arial, sans-serif;
   text-shadow: 0 0 6px #00eaffB0, 0 2px 12px #00203380, 0 6px 32px #1bdcff33;
 }
 
@@ -89,13 +91,13 @@ main h1 {
   justify-content: center;
 }
 
-/* Cada promoción */
+/* Tarjeta de promoción */
 .promocion {
   background: #232323;
   border-radius: 12px;
   box-shadow: 0 2px 15px #00eaff22;
   padding: 20px 15px;
-  width: 300px;
+  width: 265px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,25 +109,28 @@ main h1 {
   box-shadow: 0 8px 34px #00eaff44;
 }
 
-/* Título de cada kit */
-.promocion h3 a {
+/* Título del kit */
+.promocion h3 {
   color: #00eaff;
-  font-size: 1.2em;
-  margin-bottom: 0.5em;
-  text-decoration: none;
+  font-size: 1.15em;
+  margin: 0.18em 0 0.3em 0;
   text-align: center;
+}
+.promocion h3 a {
+  text-decoration: none;
+  color: inherit;
 }
 .promocion h3 a:hover {
-  text-shadow: 0 0 10px #00eaff99;
   color: #00b6cc;
+  text-shadow: 0 0 10px #00eaff99;
 }
 
-/* Descripción de kit */
+/* Descripción */
 .promocion p {
+  color: #ededed;
+  font-size: 0.99em;
   text-align: center;
-  font-size: 0.98em;
-  color: #f2f2f2;
-  margin: 8px 0;
+  margin: 0.2em 0;
 }
 
 /* Precio */
@@ -134,12 +139,12 @@ main h1 {
   font-weight: bold;
   background: #151a1e;
   border-radius: 8px;
-  padding: 0.3em 1em;
-  margin-top: 0.8em;
+  padding: 0.2em 1em;
+  margin: 0.5em 0;
   font-size: 1.02em;
 }
 
-/* Botón comprar */
+/* Botón Comprar */
 .btn-comprar {
   padding: 10px 26px;
   background: linear-gradient(90deg, #00eaff 60%, #00b6cc 100%);
@@ -162,15 +167,15 @@ main h1 {
 /* Responsive */
 @media (max-width: 670px) {
   main {
-    padding: 12px 8px;
+    padding: 12px 2px;
   }
   .promociones-lista {
     flex-direction: column;
     align-items: center;
-    gap: 18px;
+    gap: 16px;
   }
   .promocion {
-    width: 95vw;
+    width: 97vw;
     max-width: 340px;
   }
 }
