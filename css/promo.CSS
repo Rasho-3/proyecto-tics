@@ -1,4 +1,4 @@
-/* Variables de colores para mantener consistencia */
+/* Variables de colores */
 :root {
   --color-primario: #0cc0df;
   --color-primario-hover: #09a8c0;
@@ -8,7 +8,7 @@
   --color-titulo-sombra: #09a8c0;
 }
 
-/* Estilos generales del body */
+/* Estilos generales */
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -16,9 +16,44 @@ body {
   color: var(--color-texto);
 }
 
-/* Aplica estilo solo al primer h1 dentro del body de esta página */
-/* Así solo ese h1 tendrá el estilo, no otros */
-body > h1:first-of-type {
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  background-color: #111;
+}
+
+nav ul li a {
+  display: block;
+  padding: 15px 25px;
+  color: var(--color-texto);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--color-primario-hover);
+}
+
+button {
+  background-color: var(--color-primario);
+  border: none;
+  padding: 10px 20px;
+  color: var(--color-texto);
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 15px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--color-primario-hover);
+}
+
+/* Aquí está el estilo para el h1 dentro de main */
+main > h1 {
   font-size: 2.8rem;
   font-weight: 700;
   text-align: center;
@@ -30,4 +65,55 @@ body > h1:first-of-type {
     0 0 20px var(--color-titulo-sombra),
     0 0 30px var(--color-titulo);
   letter-spacing: 2px;
+}
+
+/* Estilos para las promociones (opcional, para que se vea más lindo) */
+.promociones-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 900px;
+  margin: 0 auto 50px auto;
+  padding: 0 15px;
+}
+
+.promocion {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #0cc0df;
+}
+
+.promocion h3 {
+  margin-top: 0;
+}
+
+.promocion h3 a {
+  color: var(--color-primario);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.promocion h3 a:hover {
+  text-decoration: underline;
+}
+
+.promocion p.precio {
+  font-weight: 700;
+  color: var(--color-primario-hover);
+}
+
+.btn-comprar {
+  background-color: var(--color-primario);
+  border: none;
+  padding: 10px 15px;
+  color: var(--color-texto);
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-comprar:hover {
+  background-color: var(--color-primario-hover);
 }
