@@ -8,7 +8,7 @@ body {
   min-height: 100vh;
 }
 
-/* HEADER Y TITULO PRINCIPAL */
+/* Header y Título Principal */
 header {
   background: linear-gradient(90deg, #181f2c 40%, #1e3641 100%);
   padding: 28px 0 18px 0;
@@ -51,7 +51,7 @@ header button:hover {
   transform: scale(1.04);
 }
 
-/* MAIN GENERAL */
+/* Main General */
 main {
   max-width: 570px;
   background: #161b25e0;
@@ -62,7 +62,7 @@ main {
   min-width: 275px;
 }
 
-/* SECCIONES DEL MAIN */
+/* Secciones del Main */
 main section {
   margin-bottom: 27px;
 }
@@ -92,14 +92,13 @@ main li {
   margin-bottom: 7px;
   font-size: 1.01em;
 }
-
 main p, main ul {
   font-size: 1.07em;
   line-height: 1.7;
   color: #e5f6f9;
 }
 
-/* PRECIO */
+/* Precio destacado */
 main section strong,
 main section p strong {
   color: #00eaff;
@@ -110,7 +109,7 @@ main section p strong {
     0 0 1px #00eaff66;
 }
 
-/* Botón "Comprar" del producto */
+/* Botón 'Comprar' */
 main button {
   background: linear-gradient(90deg, #00eaff 0%, #00b7e6 85%);
   color: #191f26;
@@ -131,7 +130,7 @@ main button:hover {
   transform: scale(1.034);
 }
 
-/* RESPONSIVE */
+/* Responsive (para móvil) */
 @media (max-width: 650px) {
   main {
     max-width: 98vw;
