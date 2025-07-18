@@ -1,165 +1,219 @@
-/* Variables de colores */
+/* ===== Paleta y ajustes globales ===== */
 :root {
-  --color-primario: #0cc0df;
-  --color-primario-hover: #09a8c0;
-  --color-fondo: #121212;
-  --color-texto: #ffffff;
-  --color-titulo: #0cc0df;
-  --color-titulo-sombra: #09a8c0;
+  --cian: #00eaff;
+  --cian-oscuro: #00b6cc;
+  --fondo-principal: #121212;
+  --fondo-secundario: #1e1e1e;
+  --card-bg: #232323;
+  --text-blanco: #f2f2f2;
 }
 
-/* Estilos generales */
-body {
+/* ===== Reset ===== */
+body, ul, li, h1, h3, p, a {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--color-fondo);
-  color: var(--color-texto);
+  padding: 0;
+  box-sizing: border-box;
+}
+ul { list-style: none; }
+
+/* ===== Fondo y tipografía global ===== */
+body {
+  background: var(--fondo-principal);
+  color: var(--text-blanco);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
+/* ===== Barra de Navegación ===== */
+nav {
+  background: var(--fondo-secundario);
+  box-shadow: 0 2px 16px var(--cian-oscuro)22;
+  border-radius: 0 0 16px 16px;
+  margin-bottom: 32px;
+  text-align: center;
+}
 nav ul {
-  list-style: none;
+  display: inline-block;
   padding: 0;
   margin: 0;
-  display: flex;
-  background-color: #111;
 }
-
-nav ul li a {
-  display: block;
-  padding: 15px 25px;
-  color: var(--color-texto);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: var(--color-primario-hover);
-}
-
-/* BOTONES GENERALES */
-button {
-  background-color: var(--color-primario);
-  border: none;
-  padding: 10px 20px;
-  color: var(--color-texto);
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 15px;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: var(--color-primario-hover);
-}
-
-/* HEADER STYLES */
-header {
-  padding-top: 32px;
-  padding-bottom: 12px;
-}
-
-/* TITULO EN EL MAIN (por si usas este selector) */
-main > h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  text-align: center;
-  margin: 40px 0 20px 0;
-  color: var(--color-titulo);
-  text-shadow:
-    0 0 5px var(--color-titulo-sombra),
-    0 0 10px var(--color-titulo-sombra),
-    0 0 20px var(--color-titulo-sombra),
-    0 0 30px var(--color-titulo);
-  letter-spacing: 2px;
-}
-
-/* ------- CENTRAR SOLO LOS BOTONES DEL HEADER --------- */
-/* Si los botones están juntos en un div, ejemplo:
-   <div class="botones-header">
-     <button>Volver</button>
-     <button>Inicio</button>
-   </div>
-*/
-header .botones-header {
-  display: flex;
-  justify-content: center;
-  gap: 18px;          /* Separación entre botones */
-  margin-top: 12px;   /* Espacio con el h1 */
-}
-
-/* Si los botones van directo como hijos de <header>,
-   selecciona solo los botones hijos directos del header */
-header > button {
+nav li {
   display: inline-block;
-  margin: 15px 8px 0 8px;   /* margen arriba y separación lateral */
+  margin: 0 18px;
 }
-header {
-  text-align: center;
+nav a {
+  color: var(--cian);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 20px;
+  border-radius: 14px;
+  transition: background 0.18s, color 0.18s;
+  font-size: 1em;
+}
+nav a:hover, nav a:focus {
+  background: var(--cian)22;
+  color: var(--fondo-principal);
+  outline: none;
 }
 
-/* Si quieres asegurarte aún más que los dos botones
-   estén SIEMPRE juntos centrados, pon: */
-header {
+/* ===== Botón Volver al Inicio ===== */
+.btn-volver-inicio,
+button.btn-volver-inicio {
+  display: block;
+  margin: 22px auto 14px auto;
+  padding: 10px 32px;
+  font-size: 1.05em;
+  color: var(--cian);
+  background: linear-gradient(90deg, #151a1e 70%, #192b38 100%);
+  border: 2px solid var(--cian);
+  border-radius: 22px;
+  font-weight: bold;
+  box-shadow: 0 0 16px var(--cian)33;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.25s, color 0.18s, border-color 0.25s, box-shadow 0.2s, transform 0.17s;
+}
+.btn-volver-inicio:hover, .btn-volver-inicio:focus {
+  color: var(--fondo-principal);
+  background: linear-gradient(90deg, var(--cian) 80%, var(--cian-oscuro) 100%);
+  border-color: var(--cian-oscuro);
+  box-shadow: 0 0 28px var(--cian)77;
+  transform: translateY(-2px) scale(1.035);
+  text-shadow: 0 2px 10px #fff7, 0 0 18px var(--cian)55;
+  outline: 2px solid var(--cian);
+  outline-offset: 2px;
+}
+
+/* ===== Main & Título principal ===== */
+main {
+  max-width: 900px;
+  margin: 30px auto 36px auto;
+  background-color: var(--fondo-secundario);
+  border-radius: 12px;
+  padding: 32px 20px;
+}
+main h1 {
+  color: var(--cian);
+  font-size: 2em;
+  margin-bottom: 26px;
+  text-shadow:
+    0 0 8px var(--cian)b0,
+    0 4px 18px var(--cian)33;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== Bloque de Promociones ===== */
+.promociones-lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 24px;
+  margin-bottom: 18px;
+}
+.promocion {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 15px var(--cian)22;
+  padding: 24px 18px 22px 18px;
+  width: 310px;
+  max-width: 95vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid var(--cian)15;
   text-align: center;
+  margin-bottom: 0;
+  transition: transform .16s, box-shadow .14s;
+  position: relative;
+  z-index: 1;
 }
-header > button {
-  margin-top: 12px;
+.promocion:hover {
+  transform: translateY(-5px) scale(1.025);
+  box-shadow: 0 8px 34px var(--cian)44;
 }
-
-
-/* ---------- Siguientes estilos de tu CSS original ---------- */
-
-/* Estilos para las promociones (opcional, para que se vea más lindo) */
-.promociones-lista {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  max-width: 900px;
-  margin: 0 auto 50px auto;
-  padding: 0 15px;
-}
-
-.promocion {
-  background-color: #1e1e1e;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #0cc0df;
-}
-
 .promocion h3 {
+  font-size: 1.19em;
+  margin-bottom: 0.4em;
   margin-top: 0;
 }
-
 .promocion h3 a {
-  color: var(--color-primario);
+  color: var(--cian);
   text-decoration: none;
-  font-weight: 700;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.18s;
 }
-
-.promocion h3 a:hover {
+.promocion h3 a:hover, .promocion h3 a:focus {
+  color: var(--cian-oscuro);
   text-decoration: underline;
+  outline: none;
+}
+.promocion p {
+  color: #ededed;
+  font-size: 1em;
+  margin: 0.18em 0 0.3em 0;
 }
 
-.promocion p.precio {
-  font-weight: 700;
-  color: var(--color-primario-hover);
+/* ===== Precio Promocional ===== */
+.promocion .precio {
+  color: var(--cian);
+  font-weight: bold;
+  background: #151a1e;
+  border-radius: 8px;
+  padding: 0.25em 1.1em;
+  margin: 0.5em 0 1em 0;
+  font-size: 1.04em;
+  display: inline-block;
+  letter-spacing: 1.3px;
+  text-shadow: 0 0 7px var(--cian)33;
 }
 
+/* ===== Botón Comprar Kit ===== */
 .btn-comprar {
-  background-color: var(--color-primario);
+  padding: 10px 26px;
+  background: linear-gradient(90deg, var(--cian) 60%, var(--cian-oscuro) 100%);
   border: none;
-  padding: 10px 15px;
-  color: var(--color-texto);
+  border-radius: 8px;
+  color: var(--fondo-principal);
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 1em;
   cursor: pointer;
-  border-radius: 5px;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px var(--cian)22;
+  transition: background 0.18s, color 0.18s, box-shadow 0.16s, transform 0.16s;
+  letter-spacing: 1px;
+}
+.btn-comprar:hover, .btn-comprar:focus {
+  background: linear-gradient(90deg, var(--cian-oscuro) 60%, var(--cian) 100%);
+  color: var(--card-bg);
+  box-shadow: 0 2px 20px var(--cian)44;
+  outline: 2px solid var(--cian);
+  outline-offset: 2px;
+  transform: translateY(-2px) scale(1.03);
 }
 
-.btn-comprar:hover {
-  background-color: var(--color-primario-hover);
+/* ===== Responsive ===== */
+@media (max-width: 720px) {
+  main { padding: 14px 1vw; }
+  .promociones-lista { flex-direction: column; gap: 16px; }
+  .promocion { width: 97vw; max-width: 355px; }
+  nav li { margin: 0 7px; }
 }
+@media (max-width: 480px) {
+  nav ul { display: block; }
+  nav li { display: block; margin: 12px 0; }
+  main h1 { font-size: 1.25em; }
+}
+
+/* ===== Selección y accesibilidad extra ===== */
+::selection {
+  background: var(--cian)33;
+}
+
+a:focus, button:focus, .btn-comprar:focus, .btn-volver-inicio:focus {
+  outline: 2px solid var(--cian);
+  outline-offset: 2px;
+}
+
