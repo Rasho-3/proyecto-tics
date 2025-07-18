@@ -1,14 +1,13 @@
-/* Fondo global y texto base */
+/* ==== GENERAL: FONDO Y LETRA ==== */
 body {
   background: #121212;
   color: #f2f2f2;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: Arial, 'Segoe UI', sans-serif;
   margin: 0;
-  padding: 0;
   min-height: 100vh;
 }
 
-/* HEADER Y TITULO PRINCIPAL ESTILO CATÁLOGO */
+/* ==== HEADER Y TÍTULO ==== */
 header {
   background: #1e1e1e;
   box-shadow: 0 0 15px #00eaff44;
@@ -18,47 +17,101 @@ header {
 }
 
 header h1 {
-  text-align: center;
   color: #00eaff;
   font-size: 2.4em;
   font-weight: bold;
   margin: 0 0 24px 0;
   letter-spacing: 1.8px;
   font-family: Arial, sans-serif;
-  background: none;
-  border: none;
   text-shadow:
     0 0 6px #00eaffB0,
     0 2px 12px #00203380,
     0 6px 32px #1bdcff33;
 }
 
-/* Botones en el header - mismo estilo que referencia */
-header button {
-  background: linear-gradient(90deg, #00eaff 10%, #0099ff 80%);
-  color: #151921;
-  border: none;
-  font-weight: bold;
-  font-size: 1.02em;
-  border-radius: 8px;
-  padding: 9px 19px;
-  margin: 0 7px;
-  cursor: pointer;
-  box-shadow: 0 4px 18px #00eaff66, 0 1.5px 0 #009eacc9;
-  transition: box-shadow 0.2s, background 0.18s, color 0.2s;
-  outline: none;
-}
-header button:hover {
-  background: linear-gradient(90deg, #00eaff 60%, #0fd 100%);
-  color: #23282e;
-  box-shadow: 0 0 28px #00eaffcc, 0 0 11px #00eaff77;
-  transform: scale(1.04);
-}
-
-/* Si usas botón de volver con .btn-volver-inicio, que luzca igual que en el catálogo */
-header .btn-volver-inicio {
+/* ==== SÓLO LOS BOTONES DEL HEADER: NEÓN STENSA ==== */
+/* Esto aplica solo si son hijos directos de <header> */
+header > button {
   display: inline-block;
   margin-top: 16px;
+  padding: 10px 32px;
+  font-size: 1.05em;
+  color: #00eaff;
+  background: linear-gradient(90deg, #151a1e 70%, #192b38 100%);
+  border: 2px solid #00eaff;
+  border-radius: 22px;
+  font-weight: bold;
+  box-shadow: 0 0 16px #00eaff33;
+  cursor: pointer;
+  letter-spacing: 1px;
+  margin-right: 10px;
+  margin-bottom: 8px;
+  transition:
+    background 0.25s,
+    color 0.18s,
+    border-color 0.25s,
+    box-shadow 0.2s,
+    transform 0.17s;
+}
+header > button:hover {
+  color: #121212;
+  background: linear-gradient(90deg, #00eaff 80%, #00b6cc 100%);
+  border-color: #00b6cc;
+  box-shadow: 0 0 28px #00eaff88;
+  transform: translateY(-2px) scale(1.035);
+  text-shadow: 0 2px 10px #fff7, 0 0 18px #16eaff55;
+}
+
+/* ==== MAIN: Tarjeta Central (puedes ajustar según lo que uses) ==== */
+main {
+  max-width: 570px;
+  background: #232323;
+  margin: 36px auto 42px auto;
+  border-radius: 18px;
+  padding: 38px 30px 34px 30px;
+  box-shadow: 0 4px 42px #00eaff22, 0 2px 0 #00eaff33;
+  min-width: 275px;
+  border: 2.5px solid #00eaff33;
+}
+
+/* ==== TÍTULOS Y SECCIONES EN EL MAIN ==== */
+main h2 {
+  color: #00eaff;
+  font-size: 1.19em;
+  margin: 0 0 12px 0;
+  letter-spacing: 1.1px;
+  text-shadow: 0 0 12px #00eaff33, 0 0 2px #111a22;
+  font-weight: bold;
+}
+
+main ul {
+  list-style: disc inside;
+  margin: 0 0 0 11px;
+  padding: 0 0 0 14px;
+}
+main li {
+  margin-bottom: 7px;
+  font-size: 1.05em;
+}
+main p, main ul {
+  font-size: 1.09em;
+  line-height: 1.7;
+  color: #e5f6f9;
+}
+
+/* ==== PRECIO DESTACADO ==== */
+main section strong,
+main section p strong {
+  color: #00eaff;
+  font-size: 1.19em;
+  letter-spacing: 0.7px;
+  text-shadow: 0 0 8px #00f2ff99, 0 0 1px #00eaff66;
+}
+
+/* ==== BOTÓN DE COMPRAR DENTRO DEL MAIN ==== */
+main button {
+  margin-top: 20px;
+  margin-bottom: 2px;
   padding: 10px 32px;
   font-size: 1.05em;
   color: #00eaff;
@@ -76,7 +129,7 @@ header .btn-volver-inicio {
     box-shadow 0.2s,
     transform 0.17s;
 }
-header .btn-volver-inicio:hover {
+main button:hover {
   color: #121212;
   background: linear-gradient(90deg, #00eaff 80%, #00b6cc 100%);
   border-color: #00b6cc;
@@ -85,88 +138,7 @@ header .btn-volver-inicio:hover {
   text-shadow: 0 2px 10px #fff7, 0 0 18px #16eaff55;
 }
 
-/* ------- El resto de tu estructura, igual ------- */
-
-/* MAIN GENERAL */
-main {
-  max-width: 570px;
-  background: #161b25e0;
-  margin: 36px auto 42px auto;
-  border-radius: 14px;
-  padding: 35px 28px 32px 28px;
-  box-shadow: 0 8px 36px #00eaff18, 0 1.5px 0 #008fb2cc;
-  min-width: 275px;
-}
-
-/* SECCIONES DEL MAIN */
-main section {
-  margin-bottom: 27px;
-}
-main section:last-child {
-  margin-bottom: 0;
-}
-
-/* Subtítulos */
-main h2 {
-  color: #00eaff;
-  font-size: 1.25em;
-  margin: 0 0 12px 0;
-  letter-spacing: 0.8px;
-  text-shadow:
-    0 1px 8px #00eaff44,
-    0 0 2px #111a22;
-  font-weight: 600;
-}
-
-/* Listados */
-main ul {
-  list-style: disc inside;
-  margin: 0 0 0 11px;
-  padding: 0 0 0 14px;
-}
-main li {
-  margin-bottom: 7px;
-  font-size: 1.01em;
-}
-main p, main ul {
-  font-size: 1.07em;
-  line-height: 1.7;
-  color: #e5f6f9;
-}
-
-/* PRECIO */
-main section strong,
-main section p strong {
-  color: #00eaff;
-  font-size: 1.19em;
-  letter-spacing: 0.7px;
-  text-shadow:
-    0 0 8px #00f2ff99,
-    0 0 1px #00eaff66;
-}
-
-/* Botón "Comprar" del producto */
-main button {
-  background: linear-gradient(90deg, #00eaff 0%, #00b7e6 85%);
-  color: #191f26;
-  border: none;
-  border-radius: 7px;
-  padding: 12px 36px;
-  font-size: 1.1em;
-  font-weight: bold;
-  margin: 18px 0 0 0;
-  cursor: pointer;
-  box-shadow: 0 4px 18px #00eaff66, 0 0.8px 0 #009eac88;
-  transition: box-shadow 0.2s, background 0.16s, color 0.22s;
-}
-main button:hover {
-  background: linear-gradient(90deg, #00eaff 85%, #2bfff5 100%);
-  color: #0b2430;
-  box-shadow: 0 0 18px #00eaffcc, 0 0 11px #2bf7f577;
-  transform: scale(1.034);
-}
-
-/* RESPONSIVE */
+/* ==== RESPONSIVE ==== */
 @media (max-width: 650px) {
   main {
     max-width: 98vw;
@@ -174,8 +146,17 @@ main button:hover {
     margin: 15px 2vw;
   }
   header h1 {
-    font-size: 1.32em;
+    font-size: 1.18em;
     padding: 0 4vw;
   }
   header {
-    padding: 15px
+    padding: 15px 0 9px 0;
+  }
+  main h2 {
+    font-size: 1em;
+  }
+  header > button, main button {
+    padding: 8px 6vw;
+    font-size: 1em;
+  }
+}
