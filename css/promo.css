@@ -36,6 +36,7 @@ nav ul li a:hover {
   color: var(--color-primario-hover);
 }
 
+/* BOTONES GENERALES */
 button {
   background-color: var(--color-primario);
   border: none;
@@ -52,7 +53,13 @@ button:hover {
   background-color: var(--color-primario-hover);
 }
 
-/* Aquí está el estilo para el h1 dentro de main */
+/* HEADER STYLES */
+header {
+  padding-top: 32px;
+  padding-bottom: 12px;
+}
+
+/* TITULO EN EL MAIN (por si usas este selector) */
 main > h1 {
   font-size: 2.8rem;
   font-weight: 700;
@@ -66,6 +73,45 @@ main > h1 {
     0 0 30px var(--color-titulo);
   letter-spacing: 2px;
 }
+
+/* ------- CENTRAR SOLO LOS BOTONES DEL HEADER --------- */
+/* Si los botones están juntos en un div, ejemplo:
+   <div class="botones-header">
+     <button>Volver</button>
+     <button>Inicio</button>
+   </div>
+*/
+header .botones-header {
+  display: flex;
+  justify-content: center;
+  gap: 18px;          /* Separación entre botones */
+  margin-top: 12px;   /* Espacio con el h1 */
+}
+
+/* Si los botones van directo como hijos de <header>,
+   selecciona solo los botones hijos directos del header */
+header > button {
+  display: inline-block;
+  margin: 15px 8px 0 8px;   /* margen arriba y separación lateral */
+}
+header {
+  text-align: center;
+}
+
+/* Si quieres asegurarte aún más que los dos botones
+   estén SIEMPRE juntos centrados, pon: */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+header > button {
+  margin-top: 12px;
+}
+
+
+/* ---------- Siguientes estilos de tu CSS original ---------- */
 
 /* Estilos para las promociones (opcional, para que se vea más lindo) */
 .promociones-lista {
@@ -117,6 +163,3 @@ main > h1 {
 .btn-comprar:hover {
   background-color: var(--color-primario-hover);
 }
-
-
-
