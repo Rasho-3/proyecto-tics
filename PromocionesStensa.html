@@ -1,48 +1,120 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Promociones - STENSA</title>
-    <link rel="stylesheet" href="promo.CSS">
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="ProductosStensa.html">Productos</a></li>
-            <li><a href="PromocionesStensa.html">Promociones</a></li>
-        </ul>
-    </nav>
+/* Variables de colores */
+:root {
+  --color-primario: #0cc0df;
+  --color-primario-hover: #09a8c0;
+  --color-fondo: #121212;
+  --color-texto: #ffffff;
+  --color-titulo: #0cc0df;
+  --color-titulo-sombra: #09a8c0;
+}
 
-    <button onclick="location.href='index.html'">← Volver al Inicio</button>
+/* Estilos generales */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
 
-    <main>
-        <h1>Promociones Especiales por Kit Completo</h1>
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  background-color: #111;
+}
 
-        <div class="promociones-lista">
-            <article class="promocion">
-                <h3><a href="KitBasico.html">Kit Básico Minisumo</a></h3>
-                <p>Incluye Arduino UNO, motores N20, driver L298N y accesorios esenciales.</p>
-                <p class="precio">Precio especial: Q385 GTQ</p>
-                <button class="btn-comprar" data-nombre="Kit Básico" data-precio="385">Comprar Kit</button>
-            </article>
+nav ul li a {
+  display: block;
+  padding: 15px 25px;
+  color: var(--color-texto);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
 
-            <article class="promocion">
-                <h3><a href="KitAvanzado.html">Kit Avanzado Minisumo</a></h3>
-                <p>Todo el Kit Básico más sensor ultrasónico y llantas de carrito de juguete.</p>
-                <p class="precio">Precio especial: Q800 GTQ</p>
-                <button class="btn-comprar" data-nombre="Kit Avanzado" data-precio="800">Comprar Kit</button>
-            </article>
+nav ul li a:hover {
+  color: var(--color-primario-hover);
+}
 
-            <article class="promocion">
-                <h3><a href="KitProfesional.html">Kit Profesional Minisumo</a></h3>
-                <p>Incluye Kit Avanzado, motorreductores amarillos y sensores adicionales.</p>
-                <p class="precio">Precio especial: Q1200 GTQ</p>
-                <button class="btn-comprar" data-nombre="Kit Profesional" data-precio="1200">Comprar Kit</button>
-            </article>
-        </div>
-    </main>
-    <!-- Asegúrate que el carrito.js esté al final, antes de cerrar body -->
-    <script src="carrito.js"></script>
-</body>
-</html>
+button {
+  background-color: var(--color-primario);
+  border: none;
+  padding: 10px 20px;
+  color: var(--color-texto);
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 15px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--color-primario-hover);
+}
+
+/* Aquí está el estilo para el h1 dentro de main */
+main > h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 40px 0 20px 0;
+  color: var(--color-titulo);
+  text-shadow:
+    0 0 5px var(--color-titulo-sombra),
+    0 0 10px var(--color-titulo-sombra),
+    0 0 20px var(--color-titulo-sombra),
+    0 0 30px var(--color-titulo);
+  letter-spacing: 2px;
+}
+
+/* Estilos para las promociones (opcional, para que se vea más lindo) */
+.promociones-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 900px;
+  margin: 0 auto 50px auto;
+  padding: 0 15px;
+}
+
+.promocion {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #0cc0df;
+}
+
+.promocion h3 {
+  margin-top: 0;
+}
+
+.promocion h3 a {
+  color: var(--color-primario);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.promocion h3 a:hover {
+  text-decoration: underline;
+}
+
+.promocion p.precio {
+  font-weight: 700;
+  color: var(--color-primario-hover);
+}
+
+.btn-comprar {
+  background-color: var(--color-primario);
+  border: none;
+  padding: 10px 15px;
+  color: var(--color-texto);
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-comprar:hover {
+  background-color: var(--color-primario-hover);
+}
+
